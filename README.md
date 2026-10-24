@@ -2,7 +2,7 @@
 
 Vier erste Gestaltungsrichtungen für eine persönliche Portfolio-Website.
 
-**Vorschau:** https://garytimeless.github.io/gregory-schenk-portfolio/
+**Vorschau:** https://g-schenk.de/
 
 - A: Klarer Projektauftritt
 - B: Greg, persönlich — durchgängiger Hintergrund und schwebende Inhalte
@@ -20,3 +20,5 @@ Die Schrift Syne steht unter der SIL Open Font License. Die Lizenz liegt unter `
 `index.html` direkt öffnen oder einen statischen Webserver im Verzeichnis starten.
 
 GitHub Pages veröffentlicht den Branch `main` aus dem Stammverzeichnis.
+
+Die eigene Domain `g-schenk.de` ist in `CNAME` hinterlegt. Die DNS-Verwaltung liegt bei STRATO; HTTPS wird von GitHub Pages bereitgestellt. `www.g-schenk.de` verweist ebenfalls auf GitHub Pages und wird auf die Hauptdomain umgeleitet.
