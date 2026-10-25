@@ -15,7 +15,7 @@ const projects = {
     points: ['Drei Besuchergruppen innerhalb eines Auftritts orientieren.', 'Qualität, Labor und digitale Abläufe verständlich zeigen.', 'Karriere und Kontakt als eigenständige Wege zugänglich machen.']
   },
   ludonect: {
-    title: 'Ludonect', url: 'https://ludonect.de/',
+    title: 'Ludonect', mascot: 'assets/ludonect-otter.png', url: 'https://ludonect.de/',
     intro: 'Ein eigenes Webprodukt: ein Kennenlernspiel für Spieleabende, Workshops und Teams. Persönliche Fragen und gegenseitiges Einschätzen bringen Menschen ins Gespräch.',
     points: ['Eine Frage mit einer Zahl beantworten.', 'Einschätzen, wie die anderen geantwortet haben.', 'Antworten aufdecken und darüber ins Gespräch kommen.']
   },
@@ -38,6 +38,14 @@ function showProject(key) {
       image.alt = `Ansicht des Website-Projekts ${data.title}`;
       image.width = 1440; image.height = 1000;
       body.append(image);
+    }
+    if (data.mascot) {
+      const mascot = document.createElement('img');
+      mascot.src = data.mascot;
+      mascot.alt = 'Der Otter von Ludonect';
+      mascot.className = 'project-mascot';
+      mascot.width = 319; mascot.height = 340;
+      body.append(mascot);
     }
     const intro = document.createElement('p'); intro.textContent = data.intro; body.append(intro);
     const heading = document.createElement('h3'); heading.textContent = key === 'ludonect' ? 'Das Spielprinzip' : 'Worum es im Projekt geht'; body.append(heading);
