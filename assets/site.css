@@ -1,5 +1,8 @@
 .footer nav{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}.footer a{overflow-wrap:anywhere}.legal-content{width:min(880px,calc(100% - 40px));margin:36px auto;background:var(--surface);padding:56px;border-radius:28px;box-shadow:var(--surface-shadow);overflow-wrap:anywhere}.legal-content h1{font-size:clamp(2.4rem,6vw,3.8rem);margin:22px 0 30px}.legal-content h2{font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.25;letter-spacing:-.02em;margin-bottom:18px}.legal-content section{margin-top:36px}.legal-content p+p,.legal-content address+p{margin-top:16px}.legal-content address{font-style:normal;line-height:1.8}.legal-content .legal-date{font-size:13px;color:var(--muted);margin-top:40px}.legal-back{font-size:14px}.contact-inner a[href^="mailto:"]{overflow-wrap:anywhere}@media(max-width:760px){.legal-content{padding:30px 24px;border-radius:24px}.footer nav{gap:8px}}
 .hero-portrait{width:100%;max-width:400px;min-width:0;justify-self:center;margin:0}
+.project-website{display:flex;align-items:center;flex-wrap:wrap;gap:12px 18px;margin:0 0 24px;padding:0 0 20px;border-bottom:1px solid var(--line)}
+.project-website-address{font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+.in-progress div>.text-link[data-project]{margin-top:12px}
 .hero-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:78% center;border-radius:180px 180px 24px 24px;background:#e4e9e3}
 .hero-portrait figcaption{text-align:center;font-size:13px;color:var(--muted);margin-top:14px;letter-spacing:.02em}
 @media(max-width:760px){.hero-portrait{max-width:340px}.hero-portrait img{aspect-ratio:1/1;border-radius:130px 130px 20px 20px;object-position:82% center}}

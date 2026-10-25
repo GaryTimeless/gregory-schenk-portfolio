@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pension Anita Karlsruhe – Zimmer ab 70 € | Einfach gut ankommen</title>
+<meta name="description" content="Pension Anita in Karlsruhe: helle Zimmer im Jugendstilhaus ab 70 €. Drei Gehminuten zur Straßenbahn, rund 15 Minuten zu City und Messe. Telefon 0721 88 76 06.">
+<style>
+:root{
+  --rot:#8B0000;
+  --rot-hell:#A30001;
+  --gold:#C88205;
+  --gold-hell:#F0C674;
+  --tinte:#2a1f14;
+  --text:#3c332a;
+  --mut:#6b5f51;
+  --flaeche:#fffdf8;
+  --sand:#f7f0e4;
+  --linie:#e8ddca;
+  --weiss:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;font-family:"Trebuchet MS",Verdana,Arial,sans-serif;font-size:17px;line-height:1.65;color:var(--text);background:var(--flaeche)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:Verdana,"Trebuchet MS",Arial,sans-serif;color:var(--tinte);line-height:1.12;margin:0 0 .4em}
+p{margin:0 0 1em}
+.wrap{max-width:1180px;margin:0 auto;padding-left:20px;padding-right:20px}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--rot-hell);outline-offset:2px}
+.intro a:focus-visible,.anfrage a:focus-visible,.site-foot a:focus-visible,.phone-pill:focus-visible{outline-color:var(--weiss)}
+.btn-gold:focus-visible{outline-color:var(--tinte)}
+.skip-link{position:absolute;left:-999px;top:0;z-index:100;background:var(--rot);color:var(--weiss);padding:12px 18px;font-weight:bold;text-decoration:none}
+.skip-link:focus{left:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 22px;border-radius:6px;font-weight:bold;font-size:1rem;text-decoration:none;border:2px solid transparent;line-height:1.2}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--tinte)}
+.btn-gold:hover{background:#b17304;border-color:#b17304}
+.btn-rot{background:var(--rot);border-color:var(--rot);color:var(--weiss)}
+.btn-rot:hover{background:var(--rot-hell);border-color:var(--rot-hell)}
+.btn-ghost{background:transparent;border-color:var(--weiss);color:var(--weiss)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-white{background:var(--weiss);border-color:var(--weiss);color:var(--rot)}
+.btn-white:hover{background:var(--sand);border-color:var(--sand)}
+.btn-block{width:100%}
+.section-kicker{font-size:.85rem;font-weight:bold;letter-spacing:.16em;text-transform:uppercase;color:var(--rot-hell);margin:0 0 10px}
+.section-intro{max-width:56em;font-size:1.05rem;color:var(--mut)}
+
+/* Kopfbereich */
+.site-head{position:sticky;top:0;z-index:50;background:var(--flaeche);border-bottom:4px solid var(--rot)}
+.head-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;flex-direction:column;text-decoration:none;color:var(--tinte);line-height:1.2}
+.brand-name{font-size:1.4rem;font-weight:bold;letter-spacing:.02em}
+.brand-name strong{color:var(--rot)}
+.brand-sub{font-size:.85rem;color:var(--mut)}
+.main-nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.main-nav a{display:inline-flex;align-items:center;min-height:44px;padding:10px 12px;color:var(--tinte);font-weight:bold;font-size:.95rem;text-decoration:none;border-radius:6px}
+.main-nav a:hover{background:var(--sand)}
+.phone-pill{display:inline-flex;align-items:center;min-height:44px;padding:12px 18px;background:var(--rot);color:var(--weiss);font-weight:bold;font-size:.95rem;text-decoration:none;border-radius:6px}
+.phone-pill:hover{background:var(--rot-hell)}
+
+/* Einstieg */
+.intro{background:var(--rot)}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);max-width:1360px;margin:0 auto}
+.intro-claim{color:var(--weiss);padding:clamp(48px,7vw,96px) clamp(24px,5vw,72px)}
+.intro-claim .kicker,.anfrage .kicker{color:var(--gold-hell)}
+.intro-claim h1{color:var(--weiss);font-size:clamp(2.5rem,6.5vw,4.5rem);line-height:1.02;margin:0 0 .35em}
+.intro-claim .lead{font-size:1.15rem;max-width:34em;color:var(--weiss);margin:0 0 1.5em}
+.intro-actions{display:flex;gap:12px;flex-wrap:wrap}
+.intro-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:center;background:var(--flaeche);padding:clamp(24px,3vw,44px)}
+.intro-photos figure{margin:0;display:flex;flex-direction:column}
+.intro-photos figure:first-child{grid-column:1/-1}
+.intro-photos img{width:100%;height:210px;object-fit:cover;border-radius:6px}
+.intro-photos figure:first-child img{height:300px}
+.intro-photos figcaption{font-size:.95rem;color:var(--mut);border-left:4px solid var(--gold);padding-left:10px;margin-top:8px}
+
+/* Goldene Orientierungsfläche */
+.factbar{background:var(--gold);color:var(--tinte)}
+.fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:22px;padding-bottom:22px;text-align:center}
+.fact-grid p{margin:0;font-weight:bold}
+.fact-grid span{display:block;font-size:1.3rem}
+
+/* Zimmer & Preise */
+.rooms,.ausstattung,.lage{padding:72px 0}
+.rooms h2,.ausstattung h2,.lage h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.35em}
+.rate-list{display:grid;gap:18px;margin-top:28px}
+.rate{display:grid;grid-template-columns:260px 1fr auto;gap:24px;align-items:center;background:var(--weiss);border:1px solid var(--linie);border-left:6px solid var(--gold);border-radius:8px;padding:18px}
+.rate img{width:100%;height:180px;object-fit:cover;border-radius:4px}
+.rate h3{margin:0 0 6px;font-size:1.25rem}
+.rate-body p{margin:0;color:var(--mut)}
+.rate-price{margin:0;text-align:right;white-space:nowrap}
+.rate-price span{display:block;font-size:.9rem;color:var(--mut)}
+.rate-price strong{display:block;font-size:2rem;color:var(--rot);line-height:1.1}
+.rate-price small{display:block;font-size:.9rem;color:var(--mut)}
+.rate-note{background:var(--sand);grid-template-columns:1fr auto}
+.price-hint{font-size:.95rem;color:var(--mut);background:var(--sand);border-left:5px solid var(--gold);padding:12px 16px;margin-top:22px;margin-bottom:0}
+
+/* Ausstattung */
+.ausstattung{background:var(--sand)}
+.amenity-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center}
+.check-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}
+.check-list li{padding:12px 16px 12px 18px;border-left:5px solid var(--gold);background:var(--weiss);border-radius:0 6px 6px 0;font-weight:bold;color:var(--tinte)}
+.amenity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.amenity{margin:0;background:var(--weiss);border:1px solid var(--linie);border-radius:6px;overflow:hidden}
+.amenity img{width:100%;height:190px;object-fit:cover}
+.amenity figcaption{padding:10px 14px;font-size:.95rem;font-weight:bold;color:var(--tinte);border-top:3px solid var(--gold)}
+
+/* Lage */
+.lage-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.lage-facts{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:10px}
+.lage-facts li{background:var(--sand);border-left:5px solid var(--gold);padding:12px 16px;font-weight:bold;color:var(--tinte)}
+.lage-facts strong{color:var(--rot-hell)}
+.lage-photo{margin:0;background:var(--weiss);border:1px solid var(--linie);border-radius:8px;overflow:hidden}
+.lage-photo img{width:100%;height:100%;min-height:340px;object-fit:cover}
+.lage-photo figcaption{padding:10px 16px;font-size:.95rem;color:var(--mut)}
+
+/* Gäste / Yelp */
+.gaeste{padding:56px 0;background:var(--sand)}
+.yelp-card{max-width:640px;margin:0 auto;background:var(--weiss);border:1px solid var(--linie);border-top:6px solid var(--gold);border-radius:8px;padding:32px;text-align:center}
+.yelp-card p{margin:0 0 20px}
+.yelp-card .section-kicker{margin-bottom:10px}
+
+/* Anfrage */
+.anfrage{background:var(--rot);color:var(--weiss);padding:80px 0}
+.anfrage h2{color:var(--weiss);font-size:clamp(1.8rem,4vw,2.6rem)}
+.anfrage .lead{font-size:1.1rem;max-width:36em}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.contact-person{margin:0;color:var(--weiss)}
+.contact-person strong{color:var(--gold-hell)}
+.contact-actions{display:grid;gap:14px;background:var(--weiss);color:var(--tinte);padding:26px;border-radius:8px}
+.contact-address{font-style:normal;line-height:1.7;color:var(--mut);margin:6px 0 0}
+
+/* Fußbereich */
+.site-foot{background:var(--tinte);color:#f0e8da;padding:48px 0 20px}
+.site-foot a{color:#f0e8da}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;padding-bottom:28px}
+.foot-brand{font-size:1.3rem;margin:0 0 8px}
+.foot-brand strong{color:var(--gold)}
+.site-foot h2{font-size:1.05rem;color:var(--gold);margin:0 0 10px}
+.site-foot p{margin:0 0 10px}
+.draft-note{border-top:1px solid rgba(255,255,255,.18);padding-top:14px;margin-top:8px;font-size:.9rem;color:#cbbfa9;display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
+
+@media (max-width:1000px){
+  .intro-grid{grid-template-columns:1fr}
+  .intro-claim{padding:48px 24px}
+  .intro-photos{padding:28px 24px}
+  .amenity-layout{grid-template-columns:1fr}
+  .lage-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .main-nav{order:3;width:100%;margin-left:0}
+  .phone-pill{order:2;margin-left:auto}
+  .fact-grid{grid-template-columns:1fr 1fr}
+  .rate{grid-template-columns:1fr;gap:14px}
+  .rate img{height:200px}
+  .rate-price{text-align:left}
+  .rate-price span,.rate-price small{display:inline}
+  .rate-price strong{display:inline;margin-right:8px}
+  .intro-photos{grid-template-columns:1fr}
+  .intro-photos figure:first-child{grid-column:auto}
+  .intro-photos figure:first-child img{height:230px}
+  .intro-photos img{height:190px}
+  .amenity-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex"><meta name="referrer" content="no-referrer"></head>
+<body><aside aria-label="Hinweis zur Gestaltungsvorschau" style="position:relative;z-index:2147483001;box-sizing:border-box;padding:10px 20px;background:#fbf5e9;color:#4b2724;font:13px/1.6 system-ui,sans-serif;text-align:center;border-bottom:1px solid #d7c5aa"><strong>Gestaltungsvorschlag von Gregory Schenk</strong> · Vorschau bis zum 8. November 2026 vorgesehen. Preise, Ausstattung und Bildfreigaben werden vor einer Umsetzung abgestimmt. <a href="https://g-schenk.de/impressum.html" style="color:inherit">Impressum</a> · <a href="https://g-schenk.de/datenschutz.html" style="color:inherit">Datenschutz</a></aside>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-head" id="top">
+  <div class="wrap head-row">
+    <a class="brand" href="#top">
+      <span class="brand-name">Pension <strong>Anita</strong></span>
+      <span class="brand-sub">Schenkendorfstraße 2 · 76199 Karlsruhe</span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="#zimmer">Zimmer &amp; Preise</a>
+      <a href="#ausstattung">Ausstattung</a>
+      <a href="#lage">Lage</a>
+      <a href="#gaeste">Gäste</a>
+      <a href="#anfrage">Anfrage</a>
+    </nav>
+    <a class="phone-pill" href="tel:+49721887606">0721 88 76 06</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="intro" aria-labelledby="intro-title">
+    <div class="intro-grid">
+      <div class="intro-claim">
+        <p class="kicker">Pension Anita · Karlsruhe</p>
+        <h1 id="intro-title">Einfach gut<br>ankommen.</h1>
+        <p class="lead">Für Messebesuch, kurze Aufenthalte und Urlaub: helle Zimmer im Jugendstilhaus, persönlicher Empfang und ein Garten zum Durchatmen. Drei Gehminuten zur Straßenbahn, rund 15 Minuten zu City und Messe.</p>
+        <div class="intro-actions">
+          <a class="btn btn-gold" href="#zimmer">Zimmer &amp; Preise</a>
+          <a class="btn btn-ghost" href="#anfrage">Direkt anfragen</a>
+        </div>
+      </div>
+      <div class="intro-photos" aria-label="Eindrücke aus dem Haus">
+        <figure>
+          <img src="assets/yelp-o-4.jpg" alt="Jugendstilfassade der Pension Anita bei Tageslicht" loading="eager">
+          <figcaption>Jugendstilhaus in der Schenkendorfstraße</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/yelp-o-3.jpg" alt="Helles Doppelzimmer mit gestreifter Bettwäsche" loading="lazy">
+          <figcaption>Helles Doppelzimmer</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/yelp-o-7.jpg" alt="Garten mit Liegestühlen vor dem Hausbereich" loading="lazy">
+          <figcaption>Garten mit Liegestühlen</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="factbar" aria-label="Wichtigste Informationen auf einen Blick">
+    <div class="wrap fact-grid">
+      <p><span>3 Min.</span> zu Fuß zur Straßenbahn</p>
+      <p><span>15 Min.</span> mit Auto oder Bahn zu City und Messe</p>
+      <p><span>ab 70 €</span> Doppelzimmer zur Einzelnutzung</p>
+      <p><span>ab 100 €</span> Doppelzimmer pro Nacht</p>
+    </div>
+  </section>
+
+  <section class="rooms" id="zimmer" aria-labelledby="zimmer-title">
+    <div class="wrap">
+      <p class="section-kicker">Zimmer &amp; Preise</p>
+      <h2 id="zimmer-title">Klar kalkuliert,<br>gut geschlafen.</h2>
+      <p class="section-intro">Alle Zimmer sind mit TV und Dusche/WC ausgestattet. Auf jeder Etage stehen unseren Gästen eine komplette Küche und ein Wohnzimmer zur Verfügung – dazu ein Garten mit Liegestühlen.</p>
+      <div class="rate-list">
+        <article class="rate">
+          <img src="assets/yelp-o-3.jpg" alt="Doppelzimmer als Einzelzimmer mit gestreifter Bettwäsche" loading="lazy">
+          <div class="rate-body">
+            <h3>Doppelzimmer als Einzelzimmer</h3>
+            <p>Helles Zimmer für eine Person – ruhig gelegen und praktisch für Messe- und Kurzaufenthalte.</p>
+          </div>
+          <p class="rate-price"><span>ab</span><strong>70&nbsp;€</strong><small>pro Nacht</small></p>
+        </article>
+        <article class="rate">
+          <img src="assets/yelp-o.jpg" alt="Helles Doppelzimmer im Querformat" loading="lazy">
+          <div class="rate-body">
+            <h3>Doppelzimmer</h3>
+            <p>Freundliches Doppelzimmer mit Tageslicht, TV und Dusche/WC – für zwei Personen oder einfach mehr Platz.</p>
+          </div>
+          <p class="rate-price"><span>ab</span><strong>100&nbsp;€</strong><small>pro Nacht</small></p>
+        </article>
+        <article class="rate rate-note">
+          <div class="rate-body">
+            <h3>Garagenplatz</h3>
+            <p>Für die Anreise mit dem Auto – ein Stellplatz in der Garage, solange verfügbar.</p>
+          </div>
+          <p class="rate-price"><span>pro Tag</span><strong>30&nbsp;€</strong><small>nach Verfügbarkeit</small></p>
+        </article>
+      </div>
+      <p class="price-hint">Alle Preise sind Ab-Preise. Bitte fragen Sie Verfügbarkeit und aktuelle Konditionen telefonisch oder per E-Mail an.</p>
+    </div>
+  </section>
+
+  <section class="ausstattung" id="ausstattung" aria-labelledby="ausstattung-title">
+    <div class="wrap">
+      <p class="section-kicker">Ausstattung</p>
+      <h2 id="ausstattung-title">Haus mit Charakter.</h2>
+      <div class="amenity-layout">
+        <div class="amenity-text">
+          <ul class="check-list">
+            <li>Auf jeder Etage: komplette Küche und Wohnzimmer</li>
+            <li>Garten mit Liegestühlen zum Ausspannen</li>
+            <li>TV und Dusche/WC in den Zimmern</li>
+            <li>Bademantel und Fön auf Wunsch</li>
+          </ul>
+          <p class="section-intro">Unser Jugendstilhaus verbindet hohe Räume und alte Details mit unkomplizierter, familiärer Gastfreundschaft.</p>
+        </div>
+        <div class="amenity-grid">
+          <figure class="amenity">
+            <img src="assets/yelp-o-2.jpg" alt="Gemeinschaftsraum mit gedecktem Tisch" loading="lazy">
+            <figcaption>Gemeinschaftsraum</figcaption>
+          </figure>
+          <figure class="amenity">
+            <img src="assets/original-16.jpg" alt="Komplett ausgestattete Küche im Haus" loading="lazy">
+            <figcaption>Küche auf jeder Etage</figcaption>
+          </figure>
+          <figure class="amenity">
+            <img src="assets/yelp-o-6.jpg" alt="Gemütlicher Aufenthaltsraum im Hochformat" loading="lazy">
+            <figcaption>Wohnzimmer</figcaption>
+          </figure>
+          <figure class="amenity">
+            <img src="assets/yelp-o-8.jpg" alt="Treppenhaus mit Jugendstildetails" loading="lazy">
+            <figcaption>Treppenhaus</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lage" id="lage" aria-labelledby="lage-title">
+    <div class="wrap lage-grid">
+      <div class="lage-text">
+        <p class="section-kicker">Lage &amp; Anreise</p>
+        <h2 id="lage-title">Mittendrin,<br>aber ruhig.</h2>
+        <p class="section-intro">Die Pension Anita liegt in der Schenkendorfstraße 2 in Karlsruhe. Die Straßenbahn erreichen Sie in etwa 3 Gehminuten, City und Messe in rund 15 Minuten mit dem Auto oder der Straßenbahn.</p>
+        <ul class="lage-facts">
+          <li><strong>Straßenbahn:</strong> ca. 3 Gehminuten</li>
+          <li><strong>City &amp; Messe:</strong> ca. 15 Minuten mit Auto oder Straßenbahn</li>
+          <li><strong>Veranda &amp; Garten:</strong> zum Ankommen nach einem langen Tag</li>
+        </ul>
+        <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Schenkendorfstra%C3%9Fe%202%2C%2076199%20Karlsruhe" target="_blank" rel="noopener">Route in Google Maps öffnen</a>
+      </div>
+      <figure class="lage-photo">
+        <img src="assets/yelp-o-5.jpg" alt="Balkon und Veranda vor der Jugendstilfassade" loading="lazy">
+        <figcaption>Veranda vor der Fassade</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="gaeste" id="gaeste" aria-labelledby="gaeste-title">
+    <div class="wrap">
+      <div class="yelp-card">
+        <p class="section-kicker">Erfahrungen</p>
+        <h2 id="gaeste-title">Erfahrungen unserer Gäste</h2>
+        <p>Wie Gäste ihren Aufenthalt bei uns erleben, können Sie auf Yelp nachlesen.</p>
+        <a class="btn btn-gold" href="https://www.yelp.com/biz/pension-anita-subeit-karlsruhe" target="_blank" rel="noopener">Bewertungen auf Yelp lesen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="anfrage" id="anfrage" aria-labelledby="anfrage-title">
+    <div class="wrap contact-grid">
+      <div class="contact-claim">
+        <p class="kicker">Kontakt</p>
+        <h2 id="anfrage-title">Fragen Sie direkt an.</h2>
+        <p class="lead">Rufen Sie uns an oder schreiben Sie eine E-Mail – wir antworten persönlich und kümmern uns um Ihre Zimmeranfrage.</p>
+        <p class="contact-person">Ihre Ansprechpartnerin: <strong>Anita Subeit</strong></p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-gold btn-block" href="tel:+49721887606">0721 88 76 06</a>
+        <a class="btn btn-rot btn-block" href="mailto:harald.subeit@web.de?subject=Zimmeranfrage%20Pension%20Anita">E-Mail schreiben</a>
+        <address class="contact-address">
+          Pension Anita<br>
+          Schenkendorfstr. 2<br>
+          76199 Karlsruhe
+        </address>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <p class="foot-brand">Pension <strong>Anita</strong></p>
+      <p>Familiäre Gastfreundschaft im Jugendstilhaus – für Messe, kurze Aufenthalte und Urlaub in Karlsruhe.</p>
+    </div>
+    <div>
+      <h2>Kontakt</h2>
+      <p>Schenkendorfstr. 2<br>76199 Karlsruhe</p>
+      <p><a href="tel:+49721887606">0721 88 76 06</a><br><a href="mailto:harald.subeit@web.de">harald.subeit@web.de</a></p>
+    </div>
+    <div>
+      <h2>Weiteres</h2>
+      <p><a href="https://g-schenk.de/impressum.html" target="_blank" rel="noopener">Impressum</a><br><a href="https://www.yelp.com/biz/pension-anita-subeit-karlsruhe" target="_blank" rel="noopener">Yelp-Profil</a></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="draft-note"><span>Gestaltungsvorschlag</span><a href="index.html">Zur Entwurfsauswahl</a></p>
+  </div>
+</footer>
+<script src="entwurf-switcher.js" defer></script>
+</body>
+</html>

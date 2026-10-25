@@ -1,11 +1,11 @@
 const projects = {
   darmbalance: {
-    title: 'DARMbalance', image: 'assets/darmbalance.jpg',
+    title: 'DARMbalance', image: 'assets/darmbalance.jpg', url: 'https://my-darmbalance.de/',
     intro: 'Eine Website für Christine Lohmüller und ihre Gesundheitsbegleitung. Persönliche Ansprache, ein erklärbares Angebot und ein klarer Weg zum Kontakt.',
     points: ['Das Angebot in verständliche Themen und Abschnitte gliedern.', 'Die Person hinter der Begleitung sichtbar machen.', 'Informationen, Leistungen und Kontakt in einem zusammenhängenden Auftritt verbinden.']
   },
   impulspace: {
-    title: 'IMPULSPACE', image: 'assets/impulspace.jpg',
+    title: 'IMPULSPACE', image: 'assets/impulspace.jpg', url: 'https://impulspace.com/',
     intro: 'Andrea Hornung gibt Impulse für eine sichere digitale Zukunft. Die Website verbindet ihre Person mit Vorträgen, Seminaren und Kursen.',
     points: ['Unterschiedliche Formate übersichtlich vorstellen.', 'Fachthema und persönliche Biografie zusammenbringen.', 'Deutsche und englische Seiten für unterschiedliche Besucher anbieten.']
   },
@@ -15,7 +15,7 @@ const projects = {
     points: ['Drei Besuchergruppen innerhalb eines Auftritts orientieren.', 'Qualität, Labor und digitale Abläufe verständlich zeigen.', 'Karriere und Kontakt als eigenständige Wege zugänglich machen.']
   },
   ludonect: {
-    title: 'Ludonect',
+    title: 'Ludonect', url: 'https://ludonect.de/',
     intro: 'Ein eigenes Webprodukt: ein Kennenlernspiel für Spieleabende, Workshops und Teams. Persönliche Fragen und gegenseitiges Einschätzen bringen Menschen ins Gespräch.',
     points: ['Eine Frage mit einer Zahl beantworten.', 'Einschätzen, wie die anderen geantwortet haben.', 'Antworten aufdecken und darüber ins Gespräch kommen.']
   },
@@ -44,11 +44,33 @@ function showProject(key) {
     const list = document.createElement('ul');
     data.points.forEach(point => {const item = document.createElement('li'); item.textContent = point; list.append(item);});
     body.append(list);
+    if (key === 'ludonect') {
+      const note = document.createElement('p');
+      note.textContent = 'Das Projekt pausiert aktuell. Die Projektwebsite ist erreichbar, das Onlinespiel derzeit nicht verfügbar.';
+      body.append(note);
+    }
     if (key === 'verschoenerei') {
       const note = document.createElement('p');
       note.textContent = 'Dieses Projekt befindet sich aktuell in der Umsetzung.';
       body.append(note);
     }
+    if (data.url) {
+      const links = document.createElement('div');
+      links.className = 'project-website';
+      const link = document.createElement('a');
+      link.className = 'button';
+      link.href = data.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Website besuchen';
+      link.setAttribute('aria-label', `${data.title}: Website besuchen (öffnet in neuem Tab)`);
+      const address = document.createElement('span');
+      address.className = 'project-website-address';
+      address.textContent = new URL(data.url).hostname;
+      links.append(link, address);
+      body.prepend(links);
+    }
+    projectDialog.scrollTop = 0;
     projectDialog.showModal();
 }
 
