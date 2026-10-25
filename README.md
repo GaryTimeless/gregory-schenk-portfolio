@@ -1,24 +1,13 @@
-# Gregory Schenk — Portfolio-Entwürfe
+# Gregory Schenk · Portfolio
 
-Vier erste Gestaltungsrichtungen für eine persönliche Portfolio-Website.
+Persönliche Portfolio-Website im Stil des ausgewählten Entwurfs B.
 
-**Vorschau:** https://g-schenk.de/
+**Website:** https://g-schenk.de/
 
-- A: Klarer Projektauftritt
-- B: Greg, persönlich — durchgängiger Hintergrund und schwebende Inhalte
-- C: Neugierig bleiben
-- D: Am Spieltisch — Spielbrett, Projekt-Handkarten und drehbarer Würfel
+Statisches HTML, CSS und JavaScript ohne Buildschritt. Die Hauptseite nutzt direkte E-Mail-Links an gregoryschenk@me.com. Impressum und Datenschutz sind als eigene Seiten erreichbar. Keine Analysewerkzeuge oder eingebetteten externen Schriften. Die Projektwebsites sind externe Links; Ludonect ist als pausiertes Projekt gekennzeichnet.
 
-In D öffnet „Arbeiten ansehen“ eine aufgefächerte Kartenhand. Würfeln bewegt die Figur um 1 bis 6 Felder. Der Würfel lässt sich mit Maus, Finger oder Pfeiltasten drehen. Alle Felder sind direkt zugänglich.
+GitHub Pages veröffentlicht `main` aus dem Stammverzeichnis. Die Datei `CNAME` enthält die eigene Domain und muss erhalten bleiben. Frühere Gestaltungsrichtungen bleiben unter `entwuerfe.html` verfügbar. Die alte B-Adresse führt zur Startseite.
 
-Statisches HTML, CSS und JavaScript; kein Build erforderlich. Die Kontaktfunktion bereitet ausschließlich einen Textdownload vor und sendet keine Nachricht. Inhalte und Leistungen sind Entwurfsstand.
+Lokal mit `python3 -m http.server 8768 --bind 127.0.0.1` öffnen.
 
-Die Schrift Syne steht unter der SIL Open Font License. Die Lizenz liegt unter `assets/Syne-OFL.txt`.
-
-## Vorschau lokal
-
-`index.html` direkt öffnen oder einen statischen Webserver im Verzeichnis starten.
-
-GitHub Pages veröffentlicht den Branch `main` aus dem Stammverzeichnis.
-
-Die eigene Domain `g-schenk.de` ist in `CNAME` hinterlegt. Die DNS-Verwaltung liegt bei STRATO; HTTPS wird von GitHub Pages bereitgestellt. `www.g-schenk.de` verweist ebenfalls auf GitHub Pages und wird auf die Hauptdomain umgeleitet.
+Die lokal eingebundene Schrift Syne steht unter der SIL Open Font License; siehe `assets/Syne-OFL.txt`.

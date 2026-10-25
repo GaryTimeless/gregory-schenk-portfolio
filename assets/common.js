@@ -52,7 +52,7 @@ function showProject(key) {
 document.addEventListener('click', event => {
   const project = event.target.closest('[data-project]');
   if (project) showProject(project.dataset.project);
-  if (event.target.closest('[data-contact]')) document.querySelector('#contact-dialog').showModal();
+
 });
 document.querySelectorAll('[data-notes]').forEach(button => button.addEventListener('click', () => document.querySelector('#notes-dialog').showModal()));
 document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
@@ -62,17 +62,6 @@ document.querySelectorAll('dialog').forEach(dialog => {
     const rect = dialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
-});
-const contactForm = document.querySelector('#contact-form');
-contactForm?.addEventListener('submit', event => {
-  event.preventDefault();
-  const data = new FormData(contactForm);
-  const text = `Projektidee für Gregory Schenk\n\nProjekt: ${data.get('project')}\nVorhaben: ${data.get('type')}\n\n${data.get('idea')}\n\nLokal vorbereitet. Nicht versendet.\n`;
-  const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href = url; a.download = 'meine-projektidee.txt'; a.click();
-  setTimeout(() => URL.revokeObjectURL(url),1000);
-  document.querySelector('#form-status').textContent = 'Dein Projekttext wurde als Download vorbereitet. Es wurde keine Nachricht verschickt.';
 });
 document.querySelectorAll('button[data-look]').forEach(button => {
   button.addEventListener('click', () => {
