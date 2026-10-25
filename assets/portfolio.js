@@ -21,7 +21,7 @@ const projects = {
   },
   verschoenerei: {
     title: 'Verschönerei', image: 'assets/verschoenerei.jpg',
-    intro: 'Aktuell in der Entwurfsphase: ein Relaunch für einen Salon in Weinheim. Haut, Haare und Nägel geben dem Auftritt seine Struktur.',
+    intro: 'Ein neuer Webauftritt für einen Salon in Weinheim. Haut, Haare und Nägel geben dem Auftritt seine Struktur.',
     points: ['Verschiedene Gestaltungsrichtungen vergleichen.', 'Die drei Angebotsbereiche als Ausgangspunkt nutzen.', 'Eine erste Richtung gemeinsam auswählen und weiterentwickeln.']
   }
 };
@@ -46,7 +46,7 @@ function showProject(key) {
     body.append(list);
     if (key === 'verschoenerei') {
       const note = document.createElement('p');
-      note.textContent = 'Laufende Gestaltung und Umsetzung. Die abgebildete Ansicht zeigt einen Entwurf.';
+      note.textContent = 'Dieses Projekt befindet sich aktuell in der Umsetzung.';
       body.append(note);
     }
     projectDialog.showModal();
