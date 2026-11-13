@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 const source = await readFile(new URL('../expertsearch/app.js', import.meta.url), 'utf8');
-const {product, total, csvCell, isConfirmed, liveAvailable} = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+const resolvedSource=source.replace("from './transport.mjs'","from '"+new URL('../expertsearch/transport.mjs',import.meta.url).href+"'");
+const {product, total, csvCell, isConfirmed, liveAvailable, pendingMarkets} = await import('data:text/javascript;base64,' + Buffer.from(resolvedSource).toString('base64'));
 const offer = {status:'ok',identity_confirmed:true,gross_price:354.9,currency:'EUR',shipping:[{type:'PKG',gross:0,currency:'EUR'}]};
 test('accepts only actual Expert HTTPS product URLs and removes old market selection', () => {
   const parsed = product('https://www.expert.de/shop/36411100248-machine.html?branch_id=123#info');
@@ -31,4 +32,8 @@ test('temporary search expires without enabling stale backend URLs',()=>{
   assert.equal(liveAvailable({apiBase:'https://service.example',expiresAt:'2026-11-13T14:00:00Z'},Date.parse('2026-11-13T14:00:00Z')),false);
   assert.equal(liveAvailable({apiBase:''}),false);
   assert.equal(liveAvailable({apiBase:'https://service.example',expiresAt:'bad-date'}),false);
+});
+
+test('resume selects only missing or temporary failures while keeping confirmed results',()=>{
+ assert.deepEqual(pendingMarkets(['1','2','3','4'],[{market_id:'1',status:'ok'},{market_id:'2',status:'error',retryable:false},{market_id:'3',status:'error',retryable:true}]),['3','4']);
 });

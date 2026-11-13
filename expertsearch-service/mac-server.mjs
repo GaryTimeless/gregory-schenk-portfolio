@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {createHandler} from './worker.mjs';
 
 export function createTemporaryServer({expiresAt, fetchImpl = fetch, now = () => Date.now(),
-  maxCalls = 3000, minDelayMs = 250, requestLimit = 60} = {}) {
+  maxCalls = 3000, minDelayMs = 250, requestLimit = 60, log = () => {}} = {}) {
   if (!Number.isFinite(expiresAt) || expiresAt <= now()) throw new Error('A future expiry is required');
   let calls = 0, busy = 0, lastFetch = 0;
   let fetchQueue = Promise.resolve();
@@ -24,16 +24,18 @@ export function createTemporaryServer({expiresAt, fetchImpl = fetch, now = () =>
   const limitedFetch = async (url, options) => {
     // Serialize and space all upstream calls, including simultaneous visitors.
     const task = fetchQueue.then(async () => {
-      if (now() >= expiresAt || calls >= maxCalls) return new Response('', {status:429});
+      options.signal?.throwIfAborted();
+      if (now() >= expiresAt || calls >= maxCalls) return new Response('', {status:429,headers:{'x-expertsearch-error':'SESSION_BUDGET'}});
       const pause = Math.max(0, minDelayMs - (now() - lastFetch));
       if (pause) await new Promise(resolve => setTimeout(resolve, pause));
+      options.signal?.throwIfAborted();
       calls++; lastFetch = now();
       return fetchImpl(url, options);
     });
     fetchQueue = task.catch(() => {});
     return task;
   };
-  const handle = createHandler({fetchImpl: limitedFetch, cache, now: () => new Date(now())});
+  const handle = createHandler({fetchImpl: limitedFetch, cache, now: () => new Date(now()), log});
   const limiter = {async limit() {
     while (requests.length && requests[0] <= now() - 60000) requests.shift();
     if (requests.length >= requestLimit) return {success:false};
@@ -41,6 +43,11 @@ export function createTemporaryServer({expiresAt, fetchImpl = fetch, now = () =>
   }};
   const server = http.createServer(async (req, res) => {
     const origin = req.headers.origin;
+    const started = now();
+    const abort = new AbortController();
+    res.on('close',()=>{if(!res.writableEnded)abort.abort();});
+    res.on('finish',()=>{try {log({at:new Date(now()).toISOString(),event:'http_response',http_status:res.statusCode,
+      path:req.url?.startsWith('/compare?')?'/compare':req.url==='/status'?'/status':'other',duration_ms:now()-started});} catch {}});
     const headers = {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',
       'X-Content-Type-Options':'nosniff','Vary':'Origin'};
     if (origin === 'https://g-schenk.de') headers['Access-Control-Allow-Origin'] = origin;
@@ -54,10 +61,10 @@ export function createTemporaryServer({expiresAt, fetchImpl = fetch, now = () =>
     if (busy >= 2) {reply(429,{error:'Es laufen bereits Preisabfragen. Bitte später erneut versuchen.'});return;}
     busy++;
     try {
-      const request = new Request(new URL(req.url,'http://127.0.0.1'),{method:req.method,headers:req.headers});
+      const request = new Request(new URL(req.url,'http://127.0.0.1'),{method:req.method,headers:req.headers,signal:abort.signal});
       const result = await handle(request,{REQUEST_LIMITER:limiter},{waitUntil:promise=>promise.catch(()=>{})});
       res.writeHead(result.status,Object.fromEntries(result.headers));res.end(await result.text());
-    } catch {if (!res.headersSent)reply(502,{error:'Die Suche konnte nicht abgeschlossen werden.'});else res.end();}
+    } catch {if (!res.destroyed && !res.headersSent)reply(502,{error:'Die Suche konnte nicht abgeschlossen werden.'});else res.end();}
     finally {busy--;}
   });
   server.requestTimeout = 180000;
@@ -68,7 +75,7 @@ export function createTemporaryServer({expiresAt, fetchImpl = fetch, now = () =>
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const expiresAt = Date.parse(process.env.EXPERTSEARCH_EXPIRES_AT || '');
-  const server = createTemporaryServer({expiresAt});
+  const server = createTemporaryServer({expiresAt,log:event=>console.log(JSON.stringify(event))});
   server.listen(8776,'127.0.0.1',()=>console.log(`ExpertSearch API on loopback :8776, expires ${new Date(expiresAt).toISOString()}`));
   const stop = () => {server.close();server.closeAllConnections();setTimeout(()=>process.exit(0),100).unref();};
   process.on('SIGTERM',stop);process.on('SIGINT',stop);

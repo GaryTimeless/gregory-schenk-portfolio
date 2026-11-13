@@ -14,7 +14,7 @@ After choosing an authorized account, check availability of the deployment tooli
 
 Only GET /compare?webcode=36411100248&markets=1906832,1907031 is supported (five IDs maximum). The backend fetches only fixed Expert /api/store and /api/pricepds URLs. It does not forward cookies or enable arbitrary proxy destinations. It checks product and market identity, keeps unknown shipping unknown, distinguishes unconfirmed records, and prefers a supplied positive checkoutPrice over bruttoPrice for direct discounts. Cashback and personalized prices are not calculated. CORS is restricted to g-schenk.de and is not user authentication: this is a public service when deployed.
 
-Successful/non-error market answers are cached for ten minutes with their original retrieval timestamps. The configured rate-limiting binding is mandatory and fails closed if missing. Its approximate 60 requests/minute counter applies per Cloudflare location, not as a strict worldwide budget. Upstream denials, throttling and network failures stop the batch without retries. No persistent product search history is stored by this code. Provider access logging and IP handling must be covered in the website's privacy notice before production enablement.
+Successful/non-error market answers are cached for ten minutes with their original retrieval timestamps. The configured rate-limiting binding is mandatory and fails closed if missing. Its approximate 60 requests/minute counter applies per Cloudflare location, not as a strict worldwide budget. Upstream denials and throttling stop the batch without automatic retries. Network failures return 503 with CORS; the frontend retries a temporary gateway/network failure once. Individual store failures remain explicit market results and do not stop other stores. No persistent product search history is stored by this code. Provider access logging and IP handling must be covered in the website's privacy notice before production enablement.
 
 ## Local verification
 
@@ -57,3 +57,5 @@ endpoint for the session. All 361 markets are an optional explicit user action;
 no mass scan is started by deployment.
 
 Extension requested by Greg: until Saturday 14 November 2026, 22:00 Europe/Berlin. Use `python3 scripts/expertsearch_session.py start --until 2026-11-14T22:00:00+01:00` after stopping the previous session. Absolute deadlines are limited to 48 hours ahead; a new Quick Tunnel URL must be published in config.json.
+
+Repair validation on 13 November: 43 automated tests passed. A synthetic browser run processed all 361 IDs despite an injected failed batch; resuming filled only the five failed IDs and kept the other 356 results. This fixture is not live-price evidence. Structured API logs now record request/market IDs, upstream error code/path/status and timing. They remain in the ignored session directory.

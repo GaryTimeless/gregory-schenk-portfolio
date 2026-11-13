@@ -78,3 +78,48 @@ test('cached market keeps its actual retrieval date and avoids upstream requests
   const result = (await response.json()).markets[0];
   assert.equal(result.retrieved_at, stamp); assert.equal(result.cached, true);
 });
+
+test('an unavailable market does not abort the remaining market',async()=>{
+  const logs=[];
+  const handle=createHandler({log:event=>logs.push(event),fetchImpl:async url=>{
+    if(url.includes('e_1111111'))return new Response('',{status:404});
+    return Response.json(url.includes('/api/store?')?store:payload);
+  }});
+  const response=await handle(request('?webcode=36411100248&markets=1111111,1906832'),env);
+  const report=await response.json();
+  assert.equal(response.status,200);assert.equal(report.markets.length,2);
+  assert.equal(report.markets[0].status,'error');assert.equal(report.markets[0].upstream_status,404);
+  assert.equal(report.markets[0].retryable,false);assert.equal(report.markets[1].status,'ok');
+  assert.ok(logs.some(e=>e.market_id==='1111111'&&e.upstream_status===404&&e.upstream_path==='/api/store'));
+  assert.equal(response.headers.get('Access-Control-Allow-Origin'),'https://g-schenk.de');
+});
+test('a market-specific HTTP 502 is recorded rather than ending the batch',async()=>{
+  const handle=createHandler({fetchImpl:async url=>url.includes('e_1111111')?new Response('',{status:502}):Response.json(url.includes('/api/store?')?store:payload)});
+  const response=await handle(request('?webcode=36411100248&markets=1111111,1906832'),env);
+  const report=await response.json();assert.equal(response.status,200);
+  assert.equal(report.markets[0].retryable,true);assert.equal(report.markets[1].status,'ok');
+});
+test('a connection failure returns a logged 503 with CORS instead of an opaque 502',async()=>{
+  const logs=[];let calls=0;
+  const handle=createHandler({log:event=>logs.push(event),fetchImpl:async()=>{calls++;throw new TypeError('fetch failed',{cause:{code:'ENOTFOUND'}});}});
+  const response=await handle(request('?webcode=36411100248&markets=1111111,1906832'),env);
+  assert.equal(response.status,503);assert.equal(calls,1);
+  assert.equal(response.headers.get('Access-Control-Allow-Origin'),'https://g-schenk.de');
+  assert.ok(logs.some(e=>e.error_code==='UPSTREAM_NETWORK'&&e.reason==='ENOTFOUND'));
+});
+test('batch deadline stops starting additional upstream requests but retains all market identities',async()=>{
+  let calls=0;
+  const handle=createHandler({batchTimeoutMs:1,fetchImpl:async(url,options)=>{
+    calls++;await new Promise(resolve=>setTimeout(resolve,10));options.signal.throwIfAborted();return Response.json({});
+  }});
+  const response=await handle(request('?webcode=36411100248&markets=1111111,1906832'),env);
+  const report=await response.json();assert.equal(response.status,200);assert.equal(calls,1);
+  assert.deepEqual(report.markets.map(m=>m.market_id),['1111111','1906832']);
+  assert.ok(report.markets.every(m=>m.status==='error'&&m.retryable));
+});
+test('upstream denial is not retried or skipped across the rest of the catalogue',async()=>{
+  let calls=0;const handle=createHandler({fetchImpl:async()=>{calls++;return new Response('',{status:403});}});
+  const response=await handle(request('?webcode=36411100248&markets=1111111,1906832'),env);
+  assert.equal(response.status,403);assert.equal(calls,1);
+  assert.equal(response.headers.get('Access-Control-Allow-Origin'),'https://g-schenk.de');
+});
