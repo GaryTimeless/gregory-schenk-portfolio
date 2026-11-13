@@ -7,7 +7,7 @@
 <title>ExpertSearch · Gregory Schenk</title>
 <meta name="description" content="Ein Produkt bei verschiedenen Expert-Märkten vergleichen: Preis, Versand und Verfügbarkeit im Blick.">
 <link rel="stylesheet" href="./style.css">
-<script type="module" src="./app.js?v=20261114-session"></script>
+<script type="module" src="./app.js?v=20261113-resilient-scan"></script>
 </head>
 <body>
 <a class="skip" href="#suche">Zur Suche</a>
@@ -31,6 +31,7 @@
 <div class="results-heading"><div><h2 id="results-title">Der Vergleich</h2><p id="results-context" class="hint"></p></div><button class="secondary" id="export" type="button">CSV herunterladen</button></div>
 <p id="snapshot-note" class="saved-note" hidden>Dies ist ein gespeicherter Vergleich. Preise und Verfügbarkeit können sich seit dem Abruf geändert haben.</p>
 <div class="results-tools"><label><input type="checkbox" id="online-only"> Nur online verfügbare Angebote</label><p class="hint">Nach Gesamtpreis, soweit Versandkosten bekannt sind.</p></div>
+<button id="resume" class="secondary" type="button" hidden>Nicht erreichte Märkte weiterprüfen</button>
 <div id="offers"></div>
 <details class="other-results" id="other-results" hidden><summary id="other-summary">Weitere Marktantworten</summary><div id="other-offers"></div></details>
 <p class="results-footnote">Eine Auswahl von Märkten, kein garantierter deutschlandweiter Bestpreis. Es gelten die Preise und Bedingungen auf der jeweiligen Produktseite.</p>

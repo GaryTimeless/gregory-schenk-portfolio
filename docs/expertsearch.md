@@ -17,3 +17,9 @@ DeepCode-Run `20261113T090042Z-ca678f18` (deepseek-v4-pro, Thinking low) erreich
 Der temporäre Mac-Dienst wird in expertsearch-service/README.md beschrieben. Nutzerlink: https://g-schenk.de/expertsearch/. Datenschutzangaben wurden um den tatsächlich verwendeten Quick Tunnel und den lokalen Abfrageablauf ergänzt. Ein Cloudflare Worker bleibt nur eine vorbereitete Alternative und wurde nicht bereitgestellt.
 
 Die 361er-Marktliste stammt aus DJGorex/expert-checker und ist eine datierte Ausgangsliste, keine aktuelle Vollständigkeitsgarantie. Gespeicherte Preise sind keine Livepreise. Ein unbestätigter Marktpreis wird nie als günstigstes bestätigtes Angebot angezeigt.
+
+## Fehlerfestigkeit · 13.11.2026
+
+Ein Verbindungsabbruch im Quick Tunnel kann als HTTP 502 ohne CORS-Header erscheinen. Die Oberfläche wiederholt einen vorübergehend fehlgeschlagenen Fünferblock einmal; danach bleiben Fehler als eigene Marktantworten sichtbar und die nächsten Märkte werden verarbeitet. Nach drei aufeinanderfolgenden ausgefallenen Blöcken pausiert die Suche. „Nicht erreichte Märkte weiterprüfen“ lädt nur fehlende oder vorübergehend fehlgeschlagene Märkte nach und erhält erfolgreiche Ergebnisse. 403/429 werden nicht automatisch wiederholt.
+
+Der Adapter begrenzt Upstream-Anfragen auf sechs Sekunden und einen Block auf 30 Sekunden. Einzelne 404/5xx/ungültige Antworten stoppen andere Märkte nicht. DNS-/Socketfehler erhalten eine ausdrückliche 503-Antwort mit CORS. Das private API-Log enthält nun Anfrage-ID, Markt-ID, Fehlercode, Upstream-Pfad/-Status und Dauer; keine Besucher-IP, Cookies oder Zugangsdaten. Tunnel-Logs können weiterhin technische Verbindungsdaten enthalten und bleiben außerhalb des öffentlichen Builds.

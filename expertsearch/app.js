@@ -1,3 +1,4 @@
+import {fetchBatch, abortableSleep, BatchError} from './transport.mjs';
 const EXAMPLE = 'https://www.expert.de/shop/unsere-produkte/haushalt-kuche/kaffee-teezubereitung/kaffeevollautomaten/36411100248-del-ecam-290-61-sb-kaffeevollautomat.html';
 const money = new Intl.NumberFormat('de-DE', {style:'currency', currency:'EUR'});
 export function product(value) {
@@ -14,6 +15,7 @@ export function total(offer) {
   const shipping = offer.shipping?.find(s => s.type === 'PKG' && s.currency === 'EUR' && Number.isFinite(s.gross) && s.gross >= 0);
   return shipping ? offer.gross_price + shipping.gross : null;
 }
+export function pendingMarkets(ids,offers) {const done=new Map(offers.map(m=>[m.market_id,m]));return ids.filter(id=>!done.has(id)||done.get(id).retryable===true);}
 export function csvCell(value) {const text = String(value ?? ''); return '"' + (/^[=+\-@\t\r]/.test(text) ? "'" + text : text).replaceAll('"','""') + '"';}
 export function liveAvailable(config, now=Date.now()) {return typeof config?.apiBase === 'string' && !!config.apiBase && (!config.expiresAt || (Number.isFinite(Date.parse(config.expiresAt)) && Date.parse(config.expiresAt)>now));}
 export function isConfirmed(offer) {return offer.status === 'ok' && offer.identity_confirmed === true && Number.isFinite(offer.gross_price) && offer.gross_price > 0;}
@@ -21,7 +23,7 @@ const dateText = value => {const date=new Date(value); return Number.isNaN(date.
 
 async function init() {
   const $ = id => document.getElementById(id);
-  const state = {config:null, markets:[], selected:new Set(), offers:[], product:null, saved:false, controller:null, run:0, time:null};
+  const state = {config:null, markets:[], selected:new Set(), offers:[], product:null, saved:false, controller:null, run:0, time:null, scopeIds:[], running:false};
   const node = (tag, text, className) => {const item=document.createElement(tag); if(text != null)item.textContent=text; if(className)item.className=className; return item;};
   const error = message => {$('form-error').textContent=message; $('form-error').hidden=!message;};
   const selectedScope = () => document.querySelector('input[name=scope]:checked').value;
@@ -74,9 +76,11 @@ async function init() {
     $('other-summary').textContent=`${other.length} weitere Marktantwort${other.length===1?'':'en'} ohne bestätigten Preis`;
     $('other-offers').replaceChildren(...other.map(m=>offerNode(m,false)));
     $('export').disabled=!state.offers.length;
+    updateResume();
   }
-  function stop() {state.controller?.abort(); state.controller=null; state.run++; $('cancel').disabled=true; $('submit').disabled=!liveAvailable(state.config);}
-  function clearForInput() {stop(); state.product=null; state.offers=[]; $('results-section').hidden=true; $('progress-section').hidden=true; error('');}
+  function updateResume() {const pending=pendingMarkets(state.scopeIds,state.offers);$('resume').hidden=state.running||!state.product||!pending.length||!liveAvailable(state.config);$('resume').textContent=`Nicht erreichte Märkte weiterprüfen (${pending.length})`;}
+  function stop() {state.controller?.abort(); state.controller=null; state.run++;state.running=false; $('cancel').disabled=true; $('submit').disabled=!liveAvailable(state.config);updateResume();}
+  function clearForInput() {stop(); state.product=null; state.offers=[];state.scopeIds=[];updateResume(); $('results-section').hidden=true; $('progress-section').hidden=true; error('');}
   $('product-url').addEventListener('input',clearForInput);
   $('example').addEventListener('click',()=>{$('product-url').value=EXAMPLE; clearForInput(); $('product-url').focus();});
   $('market-filter').addEventListener('input',picker);
@@ -84,42 +88,50 @@ async function init() {
   $('clear-selection').addEventListener('click',()=>{state.selected.clear(); count(); picker();});
   $('online-only').addEventListener('change',render);
   $('cancel').addEventListener('click',()=>{stop(); $('progress-label').textContent=`Abgebrochen. ${state.offers.length} Marktantworten bleiben sichtbar.`;});
-  $('search-form').addEventListener('submit',async event=>{
-    event.preventDefault(); error('');
+  async function runComparison(resume=false) {
+    error('');
     if(!liveAvailable(state.config)){error(state.config?.expiresAt?'Die vorübergehende Live-Suche ist beendet.':'Die Live-Suche wird noch eingerichtet.');return;}
-    let sought; try{sought=product($('product-url').value);}catch(e){error(e.message);return;}
-    const markets=selectedScope()==='all'?state.markets:state.markets.filter(m=>state.selected.has(m.id));
-    if(!markets.length){error('Bitte wähle mindestens einen Markt aus.');return;}
-    stop(); const run=state.run; const controller=new AbortController();state.controller=controller;
-    state.product=sought; state.offers=[]; state.saved=false; state.time=new Date().toISOString();
-    $('submit').disabled=true;$('cancel').disabled=false;$('progress-section').hidden=false;$('progress').max=markets.length;$('progress').value=0;
-    const updateProgress=()=>{$('progress-label').textContent=`${state.offers.length} von ${markets.length} Märkten geprüft`;}; updateProgress();render();
+    let sought;try{sought=product($('product-url').value);}catch(e){error(e.message);return;}
+    const chosen=selectedScope()==='all'?state.markets:state.markets.filter(m=>state.selected.has(m.id));
+    if(!resume&&!chosen.length){error('Bitte wähle mindestens einen Markt aus.');return;}
+    stop();const run=state.run;const controller=new AbortController();state.controller=controller;
+    if(!resume||state.product?.webcode!==sought.webcode){state.offers=[];state.scopeIds=chosen.map(m=>m.id);}
+    const pending=pendingMarkets(state.scopeIds,state.offers);
+    state.product=sought;state.saved=false;state.running=true;state.time=new Date().toISOString();
+    $('submit').disabled=true;$('cancel').disabled=false;$('progress-section').hidden=false;$('progress').max=state.scopeIds.length;
+    const updateProgress=()=>{$('progress').value=state.offers.length;$('progress-label').textContent=`${state.offers.length} von ${state.scopeIds.length} Märkten bearbeitet`;};
+    const upsert=offers=>{const values=new Map(state.offers.map(m=>[m.market_id,m]));for(const m of offers){const known=state.markets.find(k=>k.id===m.market_id);values.set(m.market_id,{...m,market_name:m.market_name||known?.name||null,market_city:m.market_city||known?.city||null});}state.offers=[...values.values()];};
+    updateProgress();render();let failedGroups=0;
     try {
-      const size=Math.max(1,Math.min(5,state.config.batchSize || 5));
-      for(let start=0;start<markets.length;start+=size) {
+      const size=Math.max(1,Math.min(5,state.config.batchSize||5));
+      for(let start=0;start<pending.length;start+=size){
         if(controller.signal.aborted)break;
-        const batch=markets.slice(start,start+size);
-        const endpoint=new URL(state.config.apiBase.replace(/\/$/,'')+'/compare',location.href);
-        endpoint.search=new URLSearchParams({webcode:sought.webcode,markets:batch.map(m=>m.id).join(',')});
-        const response=await fetch(endpoint,{signal:controller.signal,credentials:'omit'});
-        if(!response.ok)throw new Error(response.status===429?'Die Abfragen werden gerade begrenzt. Bitte später erneut versuchen.':'Die Preissuche ist gerade nicht erreichbar. Bitte später erneut versuchen.');
-        const data=await response.json();
-        if(run!==state.run || controller.signal.aborted)return;
-        if(String(data.webcode)!==sought.webcode || !Array.isArray(data.markets))throw new Error('Die Produktantwort konnte nicht eindeutig zugeordnet werden.');
-        const ids=new Set(batch.map(m=>m.id)); const received=new Set();
-        for(const offer of data.markets) {
-          if(!offer || !ids.has(offer.market_id) || received.has(offer.market_id))throw new Error('Eine Marktantwort konnte nicht eindeutig zugeordnet werden.');
-          received.add(offer.market_id);state.offers.push(offer);
+        const ids=pending.slice(start,start+size);
+        try {
+          const data=await fetchBatch({apiBase:state.config.apiBase,webcode:sought.webcode,marketIds:ids,signal:controller.signal,
+            onRetry:()=>{$('progress-label').textContent=`${state.offers.length} von ${state.scopeIds.length} Märkten bearbeitet. Verbindung wird einmal erneut versucht …`;}});
+          if(run!==state.run||controller.signal.aborted)return;
+          upsert(data.markets);state.time=data.retrieved_at;
+          failedGroups=data.markets.every(m=>m.retryable===true)?failedGroups+1:0;
+        }catch(e){
+          if(run!==state.run||controller.signal.aborted||e.kind==='aborted')return;
+          if(!e.retryable)throw e;
+          const at=new Date().toISOString();
+          upsert(ids.map(id=>({market_id:id,status:'error',identity_confirmed:false,gross_price:null,currency:null,shipping:[],
+            error:e.message,error_code:'TRANSPORT_'+e.kind,retryable:true,retrieved_at:at,notes:[]})));
+          failedGroups++;
         }
-        if(received.size!==batch.length)throw new Error('Die Preisquelle hat nicht für alle angefragten Märkte geantwortet.');
-        state.time=data.retrieved_at; $('progress').value=state.offers.length;updateProgress();render();
-        // Pause between batches; AbortController also cancels this pause.
-        if(start+size<markets.length)await new Promise((resolve,reject)=>{const done=()=>{controller.signal.removeEventListener('abort',cancel);resolve();}; const timer=setTimeout(done,2200); const cancel=()=>{clearTimeout(timer);reject(new DOMException('Abgebrochen','AbortError'));};controller.signal.addEventListener('abort',cancel,{once:true});});
+        updateProgress();render();
+        if(failedGroups>=3)throw new BatchError('Die Verbindung ist wiederholt fehlgeschlagen. Die Suche pausiert; du kannst die nicht erreichten Märkte später weiterprüfen.',{kind:'network',retryable:true});
+        if(start+size<pending.length)await abortableSleep(state.config.batchPauseMs??2200,controller.signal);
       }
-      if(run===state.run)$('progress-label').textContent=`Vergleich abgeschlossen. ${state.offers.length} Märkte geprüft.`;
-    }catch(e){if(run===state.run && e.name!=='AbortError'){error(e.message || 'Die Suche konnte nicht abgeschlossen werden.');$('progress-label').textContent=`Suche unterbrochen. ${state.offers.length} Marktantworten bleiben sichtbar.`;}}
-    finally {if(run===state.run){state.controller=null;$('submit').disabled=false;$('cancel').disabled=true;}}
-  });
+      if(run===state.run){const retry=pendingMarkets(state.scopeIds,state.offers).length;const ok=state.offers.filter(isConfirmed).length;
+        $('progress-label').textContent=retry?`Durchlauf beendet: ${ok} bestätigte Preise. ${retry} Märkte vorübergehend nicht erreicht.`:`Vergleich abgeschlossen. ${state.offers.length} Märkte bearbeitet, ${ok} Preise bestätigt.`;}
+    }catch(e){if(run===state.run&&e.name!=='AbortError'&&e.kind!=='aborted'){error(e.message||'Die Suche konnte nicht abgeschlossen werden.');$('progress-label').textContent=`Suche pausiert. ${state.offers.length} vorhandene Marktantworten bleiben auf dieser Seite erhalten.`;}}
+    finally{if(run===state.run){state.controller=null;state.running=false;$('submit').disabled=!liveAvailable(state.config);$('cancel').disabled=true;updateResume();}}
+  }
+  $('search-form').addEventListener('submit',event=>{event.preventDefault();runComparison(false);});
+  $('resume').addEventListener('click',()=>runComparison(true));
   $('export').addEventListener('click',()=>{
     const rows=[['Markt','Ort','Status','Artikelpreis','Währung','Gesamtpreis mit Paketversand','Online verfügbar','Abrufzeit','Produktseite'],...state.offers.filter(m=>!$('online-only').checked || m.availability_online==='AVAILABLE').map(m=>[m.market_name,m.market_city,isConfirmed(m)?'bestätigt':m.status,isConfirmed(m)?m.gross_price:'',m.currency,total(m)??'',m.availability_online,m.retrieved_at,articleLink(m)])];
     const blob=new Blob(['\uFEFF'+rows.map(r=>r.map(csvCell).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'});
@@ -134,6 +146,7 @@ async function init() {
     $('submit').disabled=!liveAvailable(config);
     $('live-note').textContent=liveAvailable(config)?(config.expiresAt?`Vorübergehend verfügbar bis ${dateText(config.expiresAt)}. Ein Vergleich über die ganze Marktliste kann einige Minuten dauern.`:'Die Suche fragt die ausgewählten Märkte nacheinander ab. Ein Vergleich über die ganze Liste kann einige Minuten dauern.'):(config.expiresAt?'Die vorübergehende Live-Suche ist beendet. Unten findest du einen gespeicherten Vergleich.':'Die Live-Suche wird noch eingerichtet. Du kannst unten einen gespeicherten Vergleich ansehen.');
     if(config.expiresAt && liveAvailable(config))setTimeout(()=>{stop();$('submit').disabled=true;$('live-note').textContent='Die vorübergehende Live-Suche ist beendet. Bereits abgerufene Ergebnisse bleiben sichtbar.';},Math.max(1,Date.parse(config.expiresAt)-Date.now()));
+    if(config.fixture)$('live-note').textContent='Lokaler Funktionstest mit simulierten Daten. Keine Livepreise.';
     $('product-url').value=EXAMPLE;
     if(!liveAvailable(config)){try {const saved=await load('./snapshot.json');state.product=product(saved.product_url);state.offers=saved.markets;state.time=saved.retrieved_at;state.saved=true;render();}catch{$('live-note').textContent='Die Live-Suche wird noch eingerichtet.';}}
   }catch {error('Die Marktliste konnte nicht geladen werden. Bitte lade die Seite erneut.');$('live-note').hidden=true;}
