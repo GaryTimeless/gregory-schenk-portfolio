@@ -1,0 +1,9 @@
+{
+  "apiBase": "",
+  "batchSize": 5,
+  "defaultMarkets": [
+    "1907031",
+    "1906830",
+    "1906832"
+  ]
+}

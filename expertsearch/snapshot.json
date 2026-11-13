@@ -1,0 +1,76 @@
+{
+  "webcode": "36411100248",
+  "retrieved_at": "2026-11-13T09:05:23.845Z",
+  "markets": [
+    {
+      "market_id": "1906832",
+      "market_name": "expert Hoffmann",
+      "market_city": "Köln",
+      "status": "ok",
+      "identity_confirmed": true,
+      "gross_price": 354.9,
+      "currency": "EUR",
+      "shipping": [
+        {
+          "type": "PKG",
+          "gross": 0,
+          "currency": "EUR"
+        }
+      ],
+      "availability_online": "AVAILABLE",
+      "availability_store": "AVAILABLE",
+      "retrieved_at": "2026-11-13T09:05:23.059Z",
+      "webcode": "36411100248",
+      "error": null,
+      "notes": [],
+      "price_source": "https://production.brntgs.expert.de/api/pricepds?webcode=36411100248&storeId=e_1906832",
+      "price_kind": "checkoutPrice",
+      "base_price": 354.9,
+      "on_display": false
+    },
+    {
+      "market_id": "1907031",
+      "market_name": "expert Esch Neckarau",
+      "market_city": "Mannheim",
+      "status": "ok",
+      "identity_confirmed": true,
+      "gross_price": 399,
+      "currency": "EUR",
+      "shipping": [
+        {
+          "type": "PKG",
+          "gross": 0,
+          "currency": "EUR"
+        }
+      ],
+      "availability_online": "AVAILABLE",
+      "availability_store": "AVAILABLE",
+      "retrieved_at": "2026-11-13T09:05:23.441Z",
+      "webcode": "36411100248",
+      "error": null,
+      "notes": [],
+      "price_source": "https://production.brntgs.expert.de/api/pricepds?webcode=36411100248&storeId=e_1907031",
+      "price_kind": "checkoutPrice",
+      "base_price": 399,
+      "on_display": false
+    },
+    {
+      "market_id": "1906830",
+      "market_name": "expert Loskill",
+      "market_city": "Castrop-Rauxel",
+      "status": "error",
+      "identity_confirmed": false,
+      "gross_price": null,
+      "currency": null,
+      "shipping": [],
+      "availability_online": null,
+      "availability_store": null,
+      "retrieved_at": "2026-11-13T09:05:23.844Z",
+      "webcode": "36411100248",
+      "error": "Für dieses Produkt ist kein gültiger Preis verfügbar.",
+      "notes": [],
+      "price_source": "https://production.brntgs.expert.de/api/pricepds?webcode=36411100248&storeId=e_1906830"
+    }
+  ],
+  "product_url": "https://www.expert.de/shop/unsere-produkte/haushalt-kuche/kaffee-teezubereitung/kaffeevollautomaten/36411100248-del-ecam-290-61-sb-kaffeevollautomat.html"
+}

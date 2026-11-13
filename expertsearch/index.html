@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ExpertSearch · Gregory Schenk</title>
+<meta name="description" content="Ein Produkt bei verschiedenen Expert-Märkten vergleichen: Preis, Versand und Verfügbarkeit im Blick.">
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#suche">Zur Suche</a>
+<header class="wrap"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">g</span><span>Gregory Schenk<small>Ein kleines Werkzeug für gute Funde.</small></span></a><a class="back" href="/">Zum Portfolio</a></header>
+<main class="wrap" id="suche">
+<section class="intro"><h1>ExpertSearch</h1><p>Ein Produkt. Die Preise der Expert-Märkte.</p></section>
+<section class="search-panel" aria-label="Produkt und Märkte auswählen">
+<form id="search-form">
+<label class="field-label" for="product-url">Was möchtest du vergleichen?</label>
+<p class="hint" id="url-hint">Kopiere die vollständige Produktadresse von expert.de hier hinein.</p>
+<div class="url-row"><input id="product-url" type="url" name="product" autocomplete="off" spellcheck="false" aria-describedby="url-hint" required placeholder="https://www.expert.de/shop/…"><button class="primary" id="submit" type="submit" disabled>Preise vergleichen</button></div>
+<button class="text-button" id="example" type="button">Mit dem De’Longhi-Kaffeevollautomaten ausprobieren</button>
+<fieldset class="scope"><legend>Welche Märkte?</legend><label><input type="radio" name="scope" value="selected" checked> Meine Auswahl <span id="selected-count"></span></label><label><input type="radio" name="scope" value="all"> Alle Märkte aus der Liste <span id="all-count"></span></label></fieldset>
+<details id="market-picker"><summary>Marktauswahl anpassen</summary><label class="field-label" for="market-filter">Markt oder Ort suchen</label><input id="market-filter" type="search" placeholder="Zum Beispiel Köln oder Hoffmann" autocomplete="off"><div class="picker-actions"><button type="button" class="text-button" id="select-visible">Angezeigte auswählen</button><button type="button" class="text-button" id="clear-selection">Auswahl leeren</button></div><div id="market-options" class="market-options"></div></details>
+<p id="live-note" class="notice" role="status">Die Suche wird geladen …</p>
+<p id="form-error" role="alert" class="error" hidden></p>
+<div id="progress-section" hidden><div class="progress-row"><p id="progress-label" aria-live="polite"></p><button id="cancel" class="text-button" type="button">Abbrechen</button></div><progress id="progress" max="1" value="0"></progress></div>
+</form>
+</section>
+<section id="results-section" class="results" aria-labelledby="results-title" hidden>
+<div class="results-heading"><div><h2 id="results-title">Der Vergleich</h2><p id="results-context" class="hint"></p></div><button class="secondary" id="export" type="button">CSV herunterladen</button></div>
+<p id="snapshot-note" class="saved-note" hidden>Dies ist ein gespeicherter Vergleich. Preise und Verfügbarkeit können sich seit dem Abruf geändert haben.</p>
+<div class="results-tools"><label><input type="checkbox" id="online-only"> Nur online verfügbare Angebote</label><p class="hint">Nach Gesamtpreis, soweit Versandkosten bekannt sind.</p></div>
+<div id="offers"></div>
+<details class="other-results" id="other-results" hidden><summary id="other-summary">Weitere Marktantworten</summary><div id="other-offers"></div></details>
+<p class="results-footnote">Eine Auswahl von Märkten, kein garantierter deutschlandweiter Bestpreis. Es gelten die Preise und Bedingungen auf der jeweiligen Produktseite.</p>
+</section>
+<noscript><p class="notice">Bitte aktiviere JavaScript, um die Marktauswahl und den gespeicherten Vergleich zu sehen.</p></noscript>
+</main>
+<footer class="wrap"><p>Ein privates Werkzeug von Gregory Schenk. Kein Angebot von expert.</p><nav aria-label="Rechtliches"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></nav></footer>
+</body>
+</html>

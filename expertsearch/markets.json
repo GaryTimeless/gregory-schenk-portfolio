@@ -1,0 +1,1811 @@
+{
+  "retrieved_at": "2026-11-13",
+  "source": "https://github.com/DJGorex/expert-checker/blob/main/expert_branches.json",
+  "markets": [
+    {
+      "id": "14756041",
+      "name": "expert Villringer",
+      "city": "Bad Säckingen"
+    },
+    {
+      "id": "36696318",
+      "name": "expert Villringer",
+      "city": "Rheinfelden"
+    },
+    {
+      "id": "1907438",
+      "name": "expert Villringer",
+      "city": "Lörrach"
+    },
+    {
+      "id": "26802905",
+      "name": "expert Villringer",
+      "city": "Schopfheim"
+    },
+    {
+      "id": "25263919",
+      "name": "expert Octomedia",
+      "city": "Waldshut-Tiengen"
+    },
+    {
+      "id": "1907243",
+      "name": "expert Sonthofen",
+      "city": "Sonthofen"
+    },
+    {
+      "id": "1906877",
+      "name": "expert Hajnek",
+      "city": "Friedrichshafen"
+    },
+    {
+      "id": "2144096",
+      "name": "HEM expert",
+      "city": "Singen"
+    },
+    {
+      "id": "2144945",
+      "name": "expert Überlingen",
+      "city": "Überlingen"
+    },
+    {
+      "id": "2268070",
+      "name": "expert Wangen",
+      "city": "Wangen"
+    },
+    {
+      "id": "2228015",
+      "name": "expert TechnoMarkt",
+      "city": "Garmisch-Partenkirchen"
+    },
+    {
+      "id": "1906839",
+      "name": "expert Füssen",
+      "city": "Füssen"
+    },
+    {
+      "id": "33858322",
+      "name": "expert Keßler",
+      "city": "Bad Waldsee"
+    },
+    {
+      "id": "1907577",
+      "name": "expert Marktoberdorf",
+      "city": "Marktoberdorf"
+    },
+    {
+      "id": "2150035",
+      "name": "expert Bad Saulgau",
+      "city": "Bad Saulgau"
+    },
+    {
+      "id": "1906933",
+      "name": "expert TechnoMarkt",
+      "city": "Schongau"
+    },
+    {
+      "id": "1907532",
+      "name": "expert Enderer",
+      "city": "Zimmern o. R."
+    },
+    {
+      "id": "2268075",
+      "name": "expert Sigmaringen",
+      "city": "Sigmaringen"
+    },
+    {
+      "id": "1907319",
+      "name": "expert TechnoMarkt",
+      "city": "Kaufbeuren"
+    },
+    {
+      "id": "22457709",
+      "name": "expert Octomedia",
+      "city": "Lahr"
+    },
+    {
+      "id": "2268016",
+      "name": "expert Holzkirchen",
+      "city": "Holzkirchen"
+    },
+    {
+      "id": "1907154",
+      "name": "expert Oehler",
+      "city": "Offenburg"
+    },
+    {
+      "id": "1906921",
+      "name": "expert Haug",
+      "city": "Freudenstadt"
+    },
+    {
+      "id": "27509128",
+      "name": "expert Ehingen",
+      "city": "Ehingen (Donau)"
+    },
+    {
+      "id": "8068814",
+      "name": "HEM expert",
+      "city": "Mössingen"
+    },
+    {
+      "id": "2066675",
+      "name": "expert Oehler",
+      "city": "Kehl"
+    },
+    {
+      "id": "1906917",
+      "name": "expert TechnoMarkt",
+      "city": "Unterhaching"
+    },
+    {
+      "id": "1907541",
+      "name": "expert TechnoMarkt",
+      "city": "Fürstenfeldbruck"
+    },
+    {
+      "id": "2267965",
+      "name": "expert TechnoMarkt",
+      "city": "Gräfelfing"
+    },
+    {
+      "id": "1907545",
+      "name": "expert TechnoMarkt",
+      "city": "Germering"
+    },
+    {
+      "id": "1907431",
+      "name": "expert TechnoMarkt",
+      "city": "Olching"
+    },
+    {
+      "id": "1907060",
+      "name": "expert Traunreut",
+      "city": "Traunreut"
+    },
+    {
+      "id": "1907127",
+      "name": "expert Ruoff",
+      "city": "Metzingen"
+    },
+    {
+      "id": "2204139",
+      "name": "expert Octomedia",
+      "city": "Bühl"
+    },
+    {
+      "id": "14430568",
+      "name": "expert TechnoMarkt",
+      "city": "Augsburg-Göggingen"
+    },
+    {
+      "id": "1907162",
+      "name": "expert Günzburg",
+      "city": "Günzburg"
+    },
+    {
+      "id": "1907568",
+      "name": "expert TechnoMarkt",
+      "city": "Dachau"
+    },
+    {
+      "id": "1906984",
+      "name": "expert Kröhnke",
+      "city": "Böblingen"
+    },
+    {
+      "id": "14430581",
+      "name": "expert TechnoMarkt",
+      "city": "Gersthofen"
+    },
+    {
+      "id": "1907585",
+      "name": "expert Octomedia",
+      "city": "Rastatt"
+    },
+    {
+      "id": "20575054",
+      "name": "Techno-Land",
+      "city": "Deizisau"
+    },
+    {
+      "id": "22762531",
+      "name": "expert TechnoMarkt",
+      "city": "Erding"
+    },
+    {
+      "id": "1906954",
+      "name": "expert Dillingen",
+      "city": "Dillingen an der Donau"
+    },
+    {
+      "id": "27432602",
+      "name": "expert TechnoMarkt",
+      "city": "Freising"
+    },
+    {
+      "id": "34511889",
+      "name": "HEM expert",
+      "city": "Weinstadt"
+    },
+    {
+      "id": "1906836",
+      "name": "expert TeVi",
+      "city": "Neuötting"
+    },
+    {
+      "id": "1907423",
+      "name": "expert Elektroland",
+      "city": "Heidenheim"
+    },
+    {
+      "id": "1907195",
+      "name": "expert Nubert",
+      "city": "Schwäbisch Gmünd"
+    },
+    {
+      "id": "1907100",
+      "name": "expert Schrobenhausen",
+      "city": "Schrobenhausen"
+    },
+    {
+      "id": "1907159",
+      "name": "expert Pfaffenhofen",
+      "city": "Pfaffenhofen"
+    },
+    {
+      "id": "24583746",
+      "name": "HEM expert",
+      "city": "Bietigheim-Bissingen"
+    },
+    {
+      "id": "1907470",
+      "name": "expert Schlagenhauf",
+      "city": "Aalen"
+    },
+    {
+      "id": "32103156",
+      "name": "expert Arndt",
+      "city": "Donauwörth"
+    },
+    {
+      "id": "34511888",
+      "name": "klein Völklingen",
+      "city": "Völklingen"
+    },
+    {
+      "id": "1907584",
+      "name": "expert Elektro R. Meyer",
+      "city": "Saarbrücken"
+    },
+    {
+      "id": "1907576",
+      "name": "expert Elektro R. Meyer",
+      "city": "Saarbrücken"
+    },
+    {
+      "id": "1907122",
+      "name": "HEM expert",
+      "city": "Backnang"
+    },
+    {
+      "id": "1906870",
+      "name": "expert Müller Saarlouis",
+      "city": "Saarlouis"
+    },
+    {
+      "id": "1907173",
+      "name": "expert Elektra Ensdorf",
+      "city": "Ensdorf"
+    },
+    {
+      "id": "1907285",
+      "name": "expert HELO",
+      "city": "Neuburg/Donau"
+    },
+    {
+      "id": "1907071",
+      "name": "expert TeVi",
+      "city": "Landshut"
+    },
+    {
+      "id": "1907256",
+      "name": "expert Müller Nördlingen",
+      "city": "Nördlingen"
+    },
+    {
+      "id": "1907273",
+      "name": "expert Elektro R. Meyer",
+      "city": "Heusweiler"
+    },
+    {
+      "id": "1907034",
+      "name": "expert THEINER",
+      "city": "Pfarrkirchen"
+    },
+    {
+      "id": "2544594",
+      "name": "expert Schlemmer",
+      "city": "Saarwellingen"
+    },
+    {
+      "id": "1906983",
+      "name": "expert Schlagenhauf",
+      "city": "Ellwangen"
+    },
+    {
+      "id": "1907429",
+      "name": "expert THEINER",
+      "city": "Pocking"
+    },
+    {
+      "id": "1907172",
+      "name": "expert Dingolfing",
+      "city": "Dingolfing"
+    },
+    {
+      "id": "32110782",
+      "name": "expert Arndt",
+      "city": "Eichstätt"
+    },
+    {
+      "id": "1907204",
+      "name": "HEM expert",
+      "city": "Schwäbisch Hall"
+    },
+    {
+      "id": "34511887",
+      "name": "klein St. Wendel",
+      "city": "Sankt Wendel"
+    },
+    {
+      "id": "34511885",
+      "name": "klein Losheim",
+      "city": "Losheim am See"
+    },
+    {
+      "id": "1907380",
+      "name": "expert Reng",
+      "city": "Neustadt"
+    },
+    {
+      "id": "39923995",
+      "name": "expert Klein",
+      "city": "Kaiserslautern"
+    },
+    {
+      "id": "15090077",
+      "name": "expert Schlagenhauf",
+      "city": "Weißenburg"
+    },
+    {
+      "id": "1906875",
+      "name": "expert THEINER",
+      "city": "Vilshofen"
+    },
+    {
+      "id": "1907199",
+      "name": "expert TeVi",
+      "city": "Passau"
+    },
+    {
+      "id": "1906884",
+      "name": "HEM expert",
+      "city": "Satteldorf"
+    },
+    {
+      "id": "1907536",
+      "name": "expert Schlagenhauf",
+      "city": "Feuchtwangen"
+    },
+    {
+      "id": "1907123",
+      "name": "expert Reng",
+      "city": "Kelheim"
+    },
+    {
+      "id": "1907365",
+      "name": "HEM expert",
+      "city": "Künzelsau"
+    },
+    {
+      "id": "2426079",
+      "name": "expert Schlagenhauf",
+      "city": "Gunzenhausen"
+    },
+    {
+      "id": "1907031",
+      "name": "expert Esch Neckarau",
+      "city": "Mannheim"
+    },
+    {
+      "id": "1906978",
+      "name": "expert Hirsch + Ille",
+      "city": "Ludwigshafen"
+    },
+    {
+      "id": "15871906",
+      "name": "expert Hirsch + Ille",
+      "city": "Ludwigshafen"
+    },
+    {
+      "id": "1907324",
+      "name": "expert Esch City",
+      "city": "Mannheim"
+    },
+    {
+      "id": "1907161",
+      "name": "expert Henkel + Bast",
+      "city": "Konz"
+    },
+    {
+      "id": "1907299",
+      "name": "expert Plattling",
+      "city": "Plattling"
+    },
+    {
+      "id": "2237090",
+      "name": "expert Straubing",
+      "city": "Straubing"
+    },
+    {
+      "id": "1906876",
+      "name": "expert TeVi",
+      "city": "Deggendorf"
+    },
+    {
+      "id": "1907187",
+      "name": "K + B expert Waldkirchen",
+      "city": "Waldkirchen"
+    },
+    {
+      "id": "2126219",
+      "name": "HEM expert",
+      "city": "Buchen"
+    },
+    {
+      "id": "1907403",
+      "name": "HEM expert",
+      "city": "Bad Mergentheim"
+    },
+    {
+      "id": "1906881",
+      "name": "expert TeVi",
+      "city": "Schwabach"
+    },
+    {
+      "id": "1907032",
+      "name": "expert TeVi",
+      "city": "Neumarkt"
+    },
+    {
+      "id": "1906960",
+      "name": "K + B expert Regen",
+      "city": "Regen"
+    },
+    {
+      "id": "1907455",
+      "name": "expert Stommel",
+      "city": "Michelstadt"
+    },
+    {
+      "id": "1907082",
+      "name": "expert Hartmann",
+      "city": "Bad Windsheim"
+    },
+    {
+      "id": "1907297",
+      "name": "expert klein",
+      "city": "Bad Kreuznach"
+    },
+    {
+      "id": "29932479",
+      "name": "expert Wittlich",
+      "city": "Wittlich"
+    },
+    {
+      "id": "1907057",
+      "name": "expert Reinhart",
+      "city": "Külsheim"
+    },
+    {
+      "id": "29938844",
+      "name": "expert Mainland-Spessart",
+      "city": "Kleinheubach"
+    },
+    {
+      "id": "1907418",
+      "name": "expert TeVi",
+      "city": "Nürnberg"
+    },
+    {
+      "id": "1907313",
+      "name": "expert TeVi",
+      "city": "Nürnberg"
+    },
+    {
+      "id": "1907351",
+      "name": "K + B expert Cham",
+      "city": "Cham"
+    },
+    {
+      "id": "34511886",
+      "name": "klein Simmern",
+      "city": "Simmern"
+    },
+    {
+      "id": "1907117",
+      "name": "K + B expert Bad Kötzting",
+      "city": "Bad Kötzting"
+    },
+    {
+      "id": "1907269",
+      "name": "expert Hartmann",
+      "city": "Neustadt an der Aisch"
+    },
+    {
+      "id": "1906936",
+      "name": "K + B expert Schwandorf",
+      "city": "Schwandorf"
+    },
+    {
+      "id": "1907554",
+      "name": "expert Beck",
+      "city": "Ochsenfurt"
+    },
+    {
+      "id": "1907131",
+      "name": "expert Gillitzer",
+      "city": "Wackersdorf"
+    },
+    {
+      "id": "31826557",
+      "name": "expert Beck",
+      "city": "Wertheim-Bestenheid"
+    },
+    {
+      "id": "2268010",
+      "name": "expert Zwiener",
+      "city": "Groß-Umstadt"
+    },
+    {
+      "id": "31826550",
+      "name": "expert Mainland-Spessart",
+      "city": "Elsenfeld"
+    },
+    {
+      "id": "1907176",
+      "name": "K + B expert Amberg",
+      "city": "Amberg"
+    },
+    {
+      "id": "31826556",
+      "name": "expert Beck",
+      "city": "Kitzingen"
+    },
+    {
+      "id": "31826547",
+      "name": "expert Mainland-Spessart",
+      "city": "Marktheidenfeld"
+    },
+    {
+      "id": "1907035",
+      "name": "expert Beck",
+      "city": "Würzburg"
+    },
+    {
+      "id": "27284126",
+      "name": "expert Jakob Höchstadt",
+      "city": "Höchstadt"
+    },
+    {
+      "id": "17314681",
+      "name": "expert klein",
+      "city": "Hofheim-Wallau"
+    },
+    {
+      "id": "1907472",
+      "name": "expert klein",
+      "city": "Mainaschaff"
+    },
+    {
+      "id": "39506546",
+      "name": "expert Forchheim",
+      "city": "Forchheim"
+    },
+    {
+      "id": "1907160",
+      "name": "expert klein",
+      "city": "Nastätten"
+    },
+    {
+      "id": "1907392",
+      "name": "expert Zink",
+      "city": "Gerolzhofen"
+    },
+    {
+      "id": "14756048",
+      "name": "expert klein",
+      "city": "Mayen"
+    },
+    {
+      "id": "9290075",
+      "name": "expert klein",
+      "city": "Hanau"
+    },
+    {
+      "id": "29703322",
+      "name": "expert Mainland-Spessart",
+      "city": "Gemünden a. Main"
+    },
+    {
+      "id": "1906944",
+      "name": "expert klein",
+      "city": "Koblenz"
+    },
+    {
+      "id": "21476262",
+      "name": "expert Jakob Bamberg",
+      "city": "Hallstadt"
+    },
+    {
+      "id": "13134624",
+      "name": "expert klein",
+      "city": "Friedrichsdorf"
+    },
+    {
+      "id": "40239259",
+      "name": "expert Jakob Schweinfurt",
+      "city": "Schweinfurt"
+    },
+    {
+      "id": "1907050",
+      "name": "expert klein",
+      "city": "Neuwied"
+    },
+    {
+      "id": "28516615",
+      "name": "expert Schlegelmilch",
+      "city": "Haßfurt"
+    },
+    {
+      "id": "1907186",
+      "name": "expert Schäfer (Elz)",
+      "city": "Elz"
+    },
+    {
+      "id": "14756049",
+      "name": "expert klein",
+      "city": "Montabaur Heiligenroth"
+    },
+    {
+      "id": "1907367",
+      "name": "expert Simmerath",
+      "city": "Simmerath"
+    },
+    {
+      "id": "36242297",
+      "name": "expert Bad Breisig",
+      "city": "Bad Breisig"
+    },
+    {
+      "id": "1907357",
+      "name": "expert klein",
+      "city": "Friedberg"
+    },
+    {
+      "id": "1907185",
+      "name": "expert Bielinsky",
+      "city": "Bad Neuenahr-Ahrweiler"
+    },
+    {
+      "id": "37092273",
+      "name": "expert Jakob City",
+      "city": "Bayreuth"
+    },
+    {
+      "id": "40239262",
+      "name": "expert Jakob Bad Kissingen",
+      "city": "Bad Kissingen / Garitz"
+    },
+    {
+      "id": "25401148",
+      "name": "expert Jakob Bayreuth",
+      "city": "Bayreuth"
+    },
+    {
+      "id": "29932478",
+      "name": "expert Euskirchen",
+      "city": "Euskirchen"
+    },
+    {
+      "id": "30725279",
+      "name": "expert Bad Honnef",
+      "city": "Bad Honnef"
+    },
+    {
+      "id": "21476261",
+      "name": "expert Jakob Lichtenfels",
+      "city": "Lichtenfels"
+    },
+    {
+      "id": "1906923",
+      "name": "expert klein",
+      "city": "Wetzlar"
+    },
+    {
+      "id": "1906930",
+      "name": "expert Bielinsky Am Dickobskreuz",
+      "city": "Bonn"
+    },
+    {
+      "id": "1906999",
+      "name": "expert Brings",
+      "city": "Düren"
+    },
+    {
+      "id": "1907090",
+      "name": "expert klein",
+      "city": "Hachenburg"
+    },
+    {
+      "id": "14756046",
+      "name": "expert klein",
+      "city": "Altenkirchen"
+    },
+    {
+      "id": "1907517",
+      "name": "expert klein",
+      "city": "Gießen"
+    },
+    {
+      "id": "1907216",
+      "name": "Heinze & Bolek Elektronikmarkt GmbH",
+      "city": "Coburg"
+    },
+    {
+      "id": "21476263",
+      "name": "expert Jakob Kronach",
+      "city": "Kronach"
+    },
+    {
+      "id": "27613192",
+      "name": "expert Klein",
+      "city": "Siegburg"
+    },
+    {
+      "id": "1907281",
+      "name": "expert Jakob Münchberg",
+      "city": "Münchberg"
+    },
+    {
+      "id": "1907128",
+      "name": "expert klein",
+      "city": "Burbach"
+    },
+    {
+      "id": "1907226",
+      "name": "expert klein",
+      "city": "Dillenburg"
+    },
+    {
+      "id": "1907316",
+      "name": "expert Ommert",
+      "city": "Petersberg"
+    },
+    {
+      "id": "1907468",
+      "name": "Heinze & Bolek Elektronikmarkt GmbH",
+      "city": "Neustadt"
+    },
+    {
+      "id": "2268063",
+      "name": "expert klein",
+      "city": "Petersberg"
+    },
+    {
+      "id": "2739093",
+      "name": "expert klein",
+      "city": "Betzdorf"
+    },
+    {
+      "id": "2612239",
+      "name": "expert Tradehouse",
+      "city": "Hildburghausen"
+    },
+    {
+      "id": "1907333",
+      "name": "expert Nicolin",
+      "city": "Neunkirchen-Seelscheid"
+    },
+    {
+      "id": "29487094",
+      "name": "expert Gröblinghoff",
+      "city": "Bergheim"
+    },
+    {
+      "id": "1906966",
+      "name": "expert klein",
+      "city": "Waldbröl"
+    },
+    {
+      "id": "1906832",
+      "name": "expert Hoffmann",
+      "city": "Köln"
+    },
+    {
+      "id": "1907112",
+      "name": "expert Hüppeler",
+      "city": "Pulheim"
+    },
+    {
+      "id": "32667526",
+      "name": "expert Heinsberg",
+      "city": "Heinsberg"
+    },
+    {
+      "id": "1907444",
+      "name": "expert klein",
+      "city": "Siegen"
+    },
+    {
+      "id": "28570377",
+      "name": "expert Herfort",
+      "city": "Bergisch Gladbach"
+    },
+    {
+      "id": "25401149",
+      "name": "expert Jakob Hof",
+      "city": "Hof"
+    },
+    {
+      "id": "1907398",
+      "name": "Heinze & Bolek Elektronikmarkt GmbH",
+      "city": "Meiningen"
+    },
+    {
+      "id": "25731520",
+      "name": "expert Wallraff",
+      "city": "Leverkusen"
+    },
+    {
+      "id": "31952339",
+      "name": "expert Klein",
+      "city": "Marburg-Wehrda"
+    },
+    {
+      "id": "14756051",
+      "name": "expert Dormagen",
+      "city": "Dormagen"
+    },
+    {
+      "id": "15526147",
+      "name": "expert klein",
+      "city": "Olpe"
+    },
+    {
+      "id": "2552963",
+      "name": "expert Neuss",
+      "city": "Neuss"
+    },
+    {
+      "id": "32354099",
+      "name": "expert Schmalkalden",
+      "city": "Schmalkalden"
+    },
+    {
+      "id": "1907279",
+      "name": "expert Schultes",
+      "city": "Solingen"
+    },
+    {
+      "id": "1906866",
+      "name": "K + B expert Ilmenau",
+      "city": "Ilmenau"
+    },
+    {
+      "id": "2268069",
+      "name": "expert klein",
+      "city": "Bad Hersfeld"
+    },
+    {
+      "id": "26344894",
+      "name": "expert Viersen",
+      "city": "Viersen"
+    },
+    {
+      "id": "32354097",
+      "name": "expert Bad Salzungen",
+      "city": "Bad Salzungen"
+    },
+    {
+      "id": "2739092",
+      "name": "K + B expert Rudolstadt",
+      "city": "Rudolstadt"
+    },
+    {
+      "id": "1906926",
+      "name": "expert Föster",
+      "city": "Schmallenberg"
+    },
+    {
+      "id": "1907257",
+      "name": "Weyand",
+      "city": "Plettenberg"
+    },
+    {
+      "id": "1907441",
+      "name": "expert Ellinghaus",
+      "city": "Gevelsberg"
+    },
+    {
+      "id": "1907501",
+      "name": "expert Garthe",
+      "city": "Hagen"
+    },
+    {
+      "id": "31952341",
+      "name": "expert Jakob Gotha",
+      "city": "Gotha"
+    },
+    {
+      "id": "1907338",
+      "name": "expert Fiedler",
+      "city": "Annaberg-Buchholz"
+    },
+    {
+      "id": "8956393",
+      "name": "expert Kamp-Lintfort",
+      "city": "Kamp-Lintfort"
+    },
+    {
+      "id": "1907589",
+      "name": "expert Fiedler",
+      "city": "Annaberg-Buchholz"
+    },
+    {
+      "id": "1906974",
+      "name": "expert MediaMobil",
+      "city": "Erfurt"
+    },
+    {
+      "id": "1907434",
+      "name": "expert MediaMobil",
+      "city": "Erfurt"
+    },
+    {
+      "id": "1907435",
+      "name": "expert Pasternak",
+      "city": "Bochum"
+    },
+    {
+      "id": "30553854",
+      "name": "expert Brumberg",
+      "city": "Menden"
+    },
+    {
+      "id": "1907044",
+      "name": "expert Grobe",
+      "city": "Oberhausen"
+    },
+    {
+      "id": "35880017",
+      "name": "expert West Bottrop",
+      "city": "Bottrop"
+    },
+    {
+      "id": "35880014",
+      "name": "expert West Bochum",
+      "city": "Bochum"
+    },
+    {
+      "id": "18323570",
+      "name": "expert Dinslaken",
+      "city": "Dinslaken"
+    },
+    {
+      "id": "31952340",
+      "name": "expert Jakob Eschwege",
+      "city": "Eschwege"
+    },
+    {
+      "id": "1907298",
+      "name": "expert Drüke + Loskill",
+      "city": "Herne"
+    },
+    {
+      "id": "1906961",
+      "name": "expert MediaMobil",
+      "city": "Gera"
+    },
+    {
+      "id": "35880019",
+      "name": "expert West Brilon",
+      "city": "Brilon"
+    },
+    {
+      "id": "1906830",
+      "name": "expert Loskill",
+      "city": "Castrop-Rauxel"
+    },
+    {
+      "id": "24135176",
+      "name": "expert Xanten",
+      "city": "Xanten"
+    },
+    {
+      "id": "28713528",
+      "name": "expert Demirbas",
+      "city": "Wesel"
+    },
+    {
+      "id": "31343294",
+      "name": "expert Chemnitz",
+      "city": "Chemnitz"
+    },
+    {
+      "id": "1906889",
+      "name": "expert HERFAG",
+      "city": "Mühlhausen"
+    },
+    {
+      "id": "1907260",
+      "name": "expert Humpert",
+      "city": "Werl"
+    },
+    {
+      "id": "30553851",
+      "name": "expert Brumberg",
+      "city": "Kamen"
+    },
+    {
+      "id": "1907175",
+      "name": "expert Engel",
+      "city": "Chemnitz"
+    },
+    {
+      "id": "35880009",
+      "name": "expert West Soest",
+      "city": "Soest"
+    },
+    {
+      "id": "1907317",
+      "name": "expert Steinkuhl",
+      "city": "Werne"
+    },
+    {
+      "id": "26799835",
+      "name": "expert Jäger Zeitz",
+      "city": "Kretzschau OT Grana"
+    },
+    {
+      "id": "1907497",
+      "name": "expert Jäger Altenburg",
+      "city": "Altenburg"
+    },
+    {
+      "id": "1907390",
+      "name": "expert HERFAG",
+      "city": "Leinefelde-Worbis"
+    },
+    {
+      "id": "13193164",
+      "name": "expert rfe - elektro union",
+      "city": "Freiberg"
+    },
+    {
+      "id": "24993632",
+      "name": "expert Borken",
+      "city": "Borken"
+    },
+    {
+      "id": "1907427",
+      "name": "expert HERFAG",
+      "city": "Sondershausen"
+    },
+    {
+      "id": "1907430",
+      "name": "expert Promedia",
+      "city": "Ahlen"
+    },
+    {
+      "id": "33961709",
+      "name": "expert Jakob Weißenfels",
+      "city": "Weißenfels"
+    },
+    {
+      "id": "35880011",
+      "name": "expert West Beckum",
+      "city": "Beckum"
+    },
+    {
+      "id": "35880025",
+      "name": "expert West Oelde",
+      "city": "Oelde"
+    },
+    {
+      "id": "1906899",
+      "name": "expert Beverungen",
+      "city": "Paderborn"
+    },
+    {
+      "id": "36405583",
+      "name": "expert Coesfeld Hansestraße",
+      "city": "Coesfeld"
+    },
+    {
+      "id": "1907301",
+      "name": "expert Coesfeld",
+      "city": "Coesfeld"
+    },
+    {
+      "id": "2201255",
+      "name": "expert HERFAG",
+      "city": "Nordhausen"
+    },
+    {
+      "id": "26051722",
+      "name": "expert Pirna",
+      "city": "Pirna"
+    },
+    {
+      "id": "26051723",
+      "name": "expert Freital",
+      "city": "Freital"
+    },
+    {
+      "id": "14184028",
+      "name": "expert Bening",
+      "city": "Rheda-Wiedenbrück"
+    },
+    {
+      "id": "34535777",
+      "name": "expert Wachau",
+      "city": "Markkleeberg"
+    },
+    {
+      "id": "1907303",
+      "name": "expert Teichert",
+      "city": "Northeim"
+    },
+    {
+      "id": "1907443",
+      "name": "expert Höxter",
+      "city": "Höxter"
+    },
+    {
+      "id": "37711505",
+      "name": "expert Promedia",
+      "city": "Warendorf"
+    },
+    {
+      "id": "31315790",
+      "name": "expert Sebnitz",
+      "city": "Sebnitz"
+    },
+    {
+      "id": "1907097",
+      "name": "expert Ahaus",
+      "city": "Ahaus"
+    },
+    {
+      "id": "1907179",
+      "name": "expert Teichert",
+      "city": "Osterode"
+    },
+    {
+      "id": "33961708",
+      "name": "expert Jakob Halle",
+      "city": "Halle"
+    },
+    {
+      "id": "1907156",
+      "name": "expert Holzminden",
+      "city": "Holzminden"
+    },
+    {
+      "id": "12345111",
+      "name": "expert im famila",
+      "city": "Bielefeld"
+    },
+    {
+      "id": "30584101",
+      "name": "expert Riedel & Neumann",
+      "city": "Einbeck"
+    },
+    {
+      "id": "1907322",
+      "name": "expert Wunder",
+      "city": "Oschatz"
+    },
+    {
+      "id": "12585539",
+      "name": "expert Media-Park",
+      "city": "Greven"
+    },
+    {
+      "id": "8971625",
+      "name": "expert Bening",
+      "city": "Detmold"
+    },
+    {
+      "id": "2917802",
+      "name": "expert Ebersbach",
+      "city": "Ebersbach-Neugersdorf"
+    },
+    {
+      "id": "1907323",
+      "name": "expert Media-Park",
+      "city": "Steinfurt"
+    },
+    {
+      "id": "25254886",
+      "name": "ESC",
+      "city": "Bischofswerda"
+    },
+    {
+      "id": "1906988",
+      "name": "expert HERBA electronic",
+      "city": "Gronau"
+    },
+    {
+      "id": "1906858",
+      "name": "expert Media-Park",
+      "city": "Emsdetten"
+    },
+    {
+      "id": "1906905",
+      "name": "expert Ochtrup",
+      "city": "Ochtrup"
+    },
+    {
+      "id": "25135116",
+      "name": "expert Bening",
+      "city": "Lemgo"
+    },
+    {
+      "id": "2266385",
+      "name": "expert Riedel & Neumann",
+      "city": "Seesen"
+    },
+    {
+      "id": "14756052",
+      "name": "expert Döring",
+      "city": "Bad Salzuflen"
+    },
+    {
+      "id": "21578520",
+      "name": "expert Riedel & Neumann",
+      "city": "Blankenburg"
+    },
+    {
+      "id": "25254885",
+      "name": "ESC",
+      "city": "Bautzen"
+    },
+    {
+      "id": "15305380",
+      "name": "expert Döring",
+      "city": "Herford"
+    },
+    {
+      "id": "1907171",
+      "name": "expert Espelage",
+      "city": "Alfeld"
+    },
+    {
+      "id": "1906928",
+      "name": "expert Pötzsch Gröditz",
+      "city": "Gröditz"
+    },
+    {
+      "id": "1907043",
+      "name": "expert Riedel & Neumann",
+      "city": "Goslar"
+    },
+    {
+      "id": "1906925",
+      "name": "expert de Witte",
+      "city": "Schüttorf"
+    },
+    {
+      "id": "36986844",
+      "name": "expert Melle",
+      "city": "Melle"
+    },
+    {
+      "id": "7841751",
+      "name": "expert Rial-Kauf",
+      "city": "Ibbenbüren"
+    },
+    {
+      "id": "36986843",
+      "name": "expert Bünde",
+      "city": "Bünde"
+    },
+    {
+      "id": "24106176",
+      "name": "expert Bening",
+      "city": "Osnabrück"
+    },
+    {
+      "id": "1906849",
+      "name": "ESC",
+      "city": "Görlitz"
+    },
+    {
+      "id": "1907296",
+      "name": "expert Elektro Center Torgau",
+      "city": "Torgau"
+    },
+    {
+      "id": "1907041",
+      "name": "expert Pötzsch Elsterwerda",
+      "city": "Elsterwerda"
+    },
+    {
+      "id": "1907457",
+      "name": "expert Rinteln",
+      "city": "Rinteln"
+    },
+    {
+      "id": "1907073",
+      "name": "expert Döring",
+      "city": "Löhne"
+    },
+    {
+      "id": "1907566",
+      "name": "expert Kaiser",
+      "city": "Bernburg"
+    },
+    {
+      "id": "1907013",
+      "name": "expert Pötzsch Bad Liebenwerda",
+      "city": "Bad Liebenwerda"
+    },
+    {
+      "id": "22326563",
+      "name": "expert Nordhorn",
+      "city": "Nordhorn"
+    },
+    {
+      "id": "19972180",
+      "name": "expert Niesky",
+      "city": "Niesky"
+    },
+    {
+      "id": "1906846",
+      "name": "expert Döring",
+      "city": "Lübbecke"
+    },
+    {
+      "id": "2214116",
+      "name": "expert Springe",
+      "city": "Springe"
+    },
+    {
+      "id": "1949034",
+      "name": "expert Bening",
+      "city": "Minden"
+    },
+    {
+      "id": "34567993",
+      "name": "expert Hildesheim",
+      "city": "Hildesheim"
+    },
+    {
+      "id": "1907363",
+      "name": "ESC",
+      "city": "Hoyerswerda"
+    },
+    {
+      "id": "37907016",
+      "name": "expert Senftenberg",
+      "city": "Senftenberg"
+    },
+    {
+      "id": "2268081",
+      "name": "expert Salzgitter",
+      "city": "Salzgitter"
+    },
+    {
+      "id": "1907245",
+      "name": "expert Rial-Kauf",
+      "city": "Lingen"
+    },
+    {
+      "id": "1907092",
+      "name": "expert Stadthagen",
+      "city": "Stadthagen"
+    },
+    {
+      "id": "12609536",
+      "name": "expert Wolfenbüttel",
+      "city": "Wolfenbüttel"
+    },
+    {
+      "id": "1907362",
+      "name": "expert Pötzsch Finsterwalde",
+      "city": "Finsterwalde"
+    },
+    {
+      "id": "2734533",
+      "name": "expert Laatzen",
+      "city": "Laatzen"
+    },
+    {
+      "id": "9015533",
+      "name": "expert Wittenberg",
+      "city": "Lutherstadt Wittenberg"
+    },
+    {
+      "id": "28756292",
+      "name": "expert Schaper",
+      "city": "Damme"
+    },
+    {
+      "id": "19972181",
+      "name": "expert Weißwasser",
+      "city": "Weißwasser"
+    },
+    {
+      "id": "1907229",
+      "name": "expert Wunstorf",
+      "city": "Wunstorf"
+    },
+    {
+      "id": "18271100",
+      "name": "expert Garbsen",
+      "city": "Garbsen"
+    },
+    {
+      "id": "1906845",
+      "name": "expert Lehrte",
+      "city": "Lehrte"
+    },
+    {
+      "id": "34322510",
+      "name": "expert im famila",
+      "city": "Langenhagen"
+    },
+    {
+      "id": "2739145",
+      "name": "expert Langenhagen",
+      "city": "Langenhagen"
+    },
+    {
+      "id": "16149994",
+      "name": "expert Neustadt",
+      "city": "Neustadt a. Rbge."
+    },
+    {
+      "id": "1907286",
+      "name": "expert Burgdorf",
+      "city": "Burgdorf"
+    },
+    {
+      "id": "1907343",
+      "name": "expert BOmedia",
+      "city": "Haren"
+    },
+    {
+      "id": "18751463",
+      "name": "ESC",
+      "city": "Cottbus"
+    },
+    {
+      "id": "32110783",
+      "name": "expert Lübbenau",
+      "city": "Lübbenau"
+    },
+    {
+      "id": "25135118",
+      "name": "expert Bening",
+      "city": "Vechta"
+    },
+    {
+      "id": "2228014",
+      "name": "expert Bening",
+      "city": "Vechta"
+    },
+    {
+      "id": "38226027",
+      "name": "expert Gifhorn",
+      "city": "Gifhorn"
+    },
+    {
+      "id": "1907011",
+      "name": "expert Nienburg",
+      "city": "Nienburg"
+    },
+    {
+      "id": "29514128",
+      "name": "expert Kohne",
+      "city": "Werlte"
+    },
+    {
+      "id": "25135115",
+      "name": "expert Bening",
+      "city": "Cloppenburg"
+    },
+    {
+      "id": "26647453",
+      "name": "expert Celle",
+      "city": "Celle"
+    },
+    {
+      "id": "37568546",
+      "name": "expert Block",
+      "city": "Friesoythe"
+    },
+    {
+      "id": "2739126",
+      "name": "expert Bening",
+      "city": "Papenburg"
+    },
+    {
+      "id": "2261060",
+      "name": "expert Brandenburg",
+      "city": "Brandenburg an der Havel"
+    },
+    {
+      "id": "1906934",
+      "name": "expert Bening",
+      "city": "Verden"
+    },
+    {
+      "id": "32472581",
+      "name": "ESC",
+      "city": "Rangsdorf"
+    },
+    {
+      "id": "32410034",
+      "name": "ESC",
+      "city": "Königs Wusterhausen/OT Zeesen"
+    },
+    {
+      "id": "1907227",
+      "name": "expert Bening",
+      "city": "Delmenhorst"
+    },
+    {
+      "id": "25135117",
+      "name": "expert Bening",
+      "city": "Oldenburg"
+    },
+    {
+      "id": "1906924",
+      "name": "expert Bening",
+      "city": "Leer"
+    },
+    {
+      "id": "1907371",
+      "name": "expert Soltau",
+      "city": "Soltau"
+    },
+    {
+      "id": "2737312",
+      "name": "Dodenhof",
+      "city": "Posthausen"
+    },
+    {
+      "id": "32472580",
+      "name": "ESC",
+      "city": "Fürstenwalde"
+    },
+    {
+      "id": "25910829",
+      "name": "expert Salzwedel",
+      "city": "Salzwedel"
+    },
+    {
+      "id": "34627162",
+      "name": "ESC",
+      "city": "Berlin"
+    },
+    {
+      "id": "34427425",
+      "name": "expert im famila",
+      "city": "Falkensee"
+    },
+    {
+      "id": "1906885",
+      "name": "expert Bening",
+      "city": "Emden"
+    },
+    {
+      "id": "13068215",
+      "name": "expert Uelzen",
+      "city": "Uelzen"
+    },
+    {
+      "id": "1907395",
+      "name": "expert Bening",
+      "city": "Osterholz-Scharmbeck"
+    },
+    {
+      "id": "24686946",
+      "name": "expert Brake",
+      "city": "Brake"
+    },
+    {
+      "id": "1906888",
+      "name": "expert Bening",
+      "city": "Aurich"
+    },
+    {
+      "id": "38998105",
+      "name": "expert Roters",
+      "city": "Varel"
+    },
+    {
+      "id": "25910830",
+      "name": "expert Wittenberge",
+      "city": "Wittenberge"
+    },
+    {
+      "id": "1907202",
+      "name": "expert Bening",
+      "city": "Norden"
+    },
+    {
+      "id": "1907217",
+      "name": "expert Bening",
+      "city": "Wilhelmshaven"
+    },
+    {
+      "id": "30481005",
+      "name": "expert Lüneburg",
+      "city": "Lüneburg"
+    },
+    {
+      "id": "22820487",
+      "name": "expert Nordenham",
+      "city": "Nordenham"
+    },
+    {
+      "id": "1906958",
+      "name": "expert Bening",
+      "city": "Bremerhaven"
+    },
+    {
+      "id": "1907446",
+      "name": "expert Bening",
+      "city": "Bremerhaven"
+    },
+    {
+      "id": "1907213",
+      "name": "expert Bening",
+      "city": "Bremervörde"
+    },
+    {
+      "id": "1907155",
+      "name": "expert Bloedorn",
+      "city": "Winsen"
+    },
+    {
+      "id": "1907543",
+      "name": "expert Bening",
+      "city": "Buxtehude"
+    },
+    {
+      "id": "2469251",
+      "name": "expert Geesthacht",
+      "city": "Geesthacht"
+    },
+    {
+      "id": "1907083",
+      "name": "expert Bening",
+      "city": "Stade"
+    },
+    {
+      "id": "1907267",
+      "name": "expert Thomas-Electronic",
+      "city": "Hamburg/Osdorf"
+    },
+    {
+      "id": "1907221",
+      "name": "expert Tilly",
+      "city": "Hamburg/Niendorf"
+    },
+    {
+      "id": "1907238",
+      "name": "expert Bening",
+      "city": "Cuxhaven"
+    },
+    {
+      "id": "18715863",
+      "name": "expert Bening",
+      "city": "Elmshorn"
+    },
+    {
+      "id": "1907334",
+      "name": "expert Elektro-Alster-Nord",
+      "city": "Norderstedt"
+    },
+    {
+      "id": "2673978",
+      "name": "expert Brunsbüttel",
+      "city": "Brunsbüttel"
+    },
+    {
+      "id": "15526159",
+      "name": "expert Schwerin",
+      "city": "Schwerin"
+    },
+    {
+      "id": "1907361",
+      "name": "expert MegaLand Bad Oldesloe",
+      "city": "Bad Oldesloe"
+    },
+    {
+      "id": "1906973",
+      "name": "expert Harm",
+      "city": "Wahlstedt"
+    },
+    {
+      "id": "1907201",
+      "name": "expert MegaLand Bad Segeberg",
+      "city": "Bad Segeberg"
+    },
+    {
+      "id": "38877255",
+      "name": "expert Neumünster",
+      "city": "Neumünster"
+    },
+    {
+      "id": "1907453",
+      "name": "expert Heide",
+      "city": "Heide"
+    },
+    {
+      "id": "38877256",
+      "name": "expert Wismar",
+      "city": "Wismar"
+    },
+    {
+      "id": "38877254",
+      "name": "expert Neustadt",
+      "city": "Neustadt"
+    },
+    {
+      "id": "1906965",
+      "name": "expert MegaLand Eutin",
+      "city": "Eutin"
+    },
+    {
+      "id": "34322515",
+      "name": "expert im famila",
+      "city": "Rendsburg"
+    },
+    {
+      "id": "1907049",
+      "name": "expert Husum",
+      "city": "Husum"
+    },
+    {
+      "id": "1907524",
+      "name": "expert Grützmann",
+      "city": "Anklam"
+    },
+    {
+      "id": "13068209",
+      "name": "expert Jöhnk",
+      "city": "Eckernförde"
+    },
+    {
+      "id": "1907259",
+      "name": "expert MegaLand Schleswig",
+      "city": "Schleswig"
+    },
+    {
+      "id": "1907489",
+      "name": "expert Boetius",
+      "city": "Wyk/Föhr"
+    },
+    {
+      "id": "15526158",
+      "name": "expert Flensburg",
+      "city": "Flensburg"
+    }
+  ]
+}
