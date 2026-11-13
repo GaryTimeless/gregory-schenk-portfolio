@@ -1,10 +1,10 @@
 {
-  "apiBase": "https://trip-structural-enter-stations.trycloudflare.com",
+  "apiBase": "https://organised-mlb-aug-remembered.trycloudflare.com",
   "batchSize": 5,
   "defaultMarkets": [
     "1907031",
     "1906830",
     "1906832"
   ],
-  "expiresAt": "2026-11-13T13:35:39.159307+00:00"
+  "expiresAt": "2026-11-14T21:00:00+00:00"
 }

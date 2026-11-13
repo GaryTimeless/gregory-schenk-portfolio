@@ -6,7 +6,7 @@
 
 ## Stand
 
-Greg hat die vorübergehende Nutzung seines MacBooks ausdrücklich beauftragt. Der API-Dienst läuft für vier Stunden ausschließlich auf Loopback, erreichbar über Cloudflare Quick Tunnel ohne Konto. `expertsearch/config.json` enthält dessen temporäre HTTPS-Adresse und expiresAt. Nach Ablauf deaktiviert die Oberfläche Liveabfragen und kennzeichnet den gespeicherten Vergleich. Der Supervisor beendet API, Tunnel und Schlafverhinderung automatisch. Kein Dauerbetrieb oder automatischer Neustart.
+Greg hat die vorübergehende Nutzung seines MacBooks ausdrücklich beauftragt. Der API-Dienst läuft für einen begrenzten Zeitraum ausschließlich auf Loopback, erreichbar über Cloudflare Quick Tunnel ohne Konto. `expertsearch/config.json` enthält dessen temporäre HTTPS-Adresse und expiresAt. Nach Ablauf deaktiviert die Oberfläche Liveabfragen und kennzeichnet den gespeicherten Vergleich. Der Supervisor beendet API, Tunnel und Schlafverhinderung automatisch. Kein Dauerbetrieb oder automatischer Neustart.
 
 DeepCode-Run `20261113T090042Z-ca678f18` (deepseek-v4-pro, Thinking low) erreichte nach 420 Sekunden den Timeout ohne gelieferte Frontenddateien; Codex hat die Oberfläche übernommen. Keine zweite kostenpflichtige Worker-Runde gestartet. Der ursprüngliche Prototyp und die Marktlistenanalyse bleiben als Vorarbeit erhalten.
 

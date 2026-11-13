@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Start/stop a four-hour Mac-only price API and account-free Cloudflare Quick Tunnel."""
+"""Start/stop a time-limited Mac-only price API and account-free Cloudflare Quick Tunnel."""
 import argparse
 import datetime as dt
 import json
@@ -41,10 +41,11 @@ def write_state(value):
     temp.replace(STATE)
 
 
-def supervise(hours):
+def supervise(hours, until=None):
     children = []
     start = time.time()
-    expires = dt.datetime.fromtimestamp(start + hours * 3600, dt.timezone.utc).isoformat()
+    end = dt.datetime.fromisoformat(until).timestamp() if until else start + hours * 3600
+    expires = dt.datetime.fromtimestamp(end, dt.timezone.utc).isoformat()
     state = {'pid': os.getpid(), 'status': 'starting', 'expires_at': expires}
     write_state(state)
 
@@ -86,7 +87,7 @@ def supervise(hours):
             children.append(subprocess.Popen([shutil.which('cloudflared'), 'tunnel', '--no-autoupdate', '--protocol', 'http2',
                                              '--url', 'http://127.0.0.1:8776'], cwd=STATE_DIR,
                                              stdin=subprocess.DEVNULL, stdout=tunnel_log, stderr=subprocess.STDOUT))
-            children.append(subprocess.Popen(['/usr/bin/caffeinate', '-i', '-t', str(int(hours*3600))],
+            children.append(subprocess.Popen(['/usr/bin/caffeinate', '-i', '-t', str(max(1,int(end-start)))],
                                              stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
             state['children'] = [child.pid for child in children]
             write_state(state)
@@ -102,7 +103,7 @@ def supervise(hours):
                 time.sleep(.4)
             else:
                 raise RuntimeError('No Quick Tunnel URL was returned')
-            while time.time() < start + hours*3600:
+            while time.time() < end:
                 if any(child.poll() is not None for child in children[:2]):
                     state['error'] = 'API or tunnel stopped'
                     break
@@ -117,12 +118,23 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['start', 'stop', 'status', '_run'])
     parser.add_argument('--hours', type=float, default=4)
+    parser.add_argument('--until', help='Absolute ISO deadline including timezone; maximum 48 hours ahead')
     args = parser.parse_args()
-    if not .01 <= args.hours <= 12:
-        parser.error('Duration must be between .01 and 12 hours')
+    if args.until:
+        try:
+            deadline = dt.datetime.fromisoformat(args.until)
+            if deadline.tzinfo is None:
+                raise ValueError('Timezone required')
+            remaining = (deadline - dt.datetime.now(dt.timezone.utc)).total_seconds()/3600
+        except ValueError:
+            parser.error('--until must be an ISO timestamp with timezone')
+        if not .001 <= remaining <= 48:
+            parser.error('--until must be in the future and at most 48 hours ahead')
+    elif not .01 <= args.hours <= 48:
+        parser.error('Duration must be between .01 and 48 hours')
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     if args.action == '_run':
-        supervise(args.hours)
+        supervise(args.hours, args.until)
         return
     state = read_state()
     if args.action == 'status':
@@ -143,7 +155,7 @@ def main():
     if not shutil.which('cloudflared') or not shutil.which('node'):
         parser.error('cloudflared and Node must already be installed')
     with (STATE_DIR/'supervisor.log').open('a') as log:
-        process = subprocess.Popen([sys.executable, str(Path(__file__).resolve()), '_run', '--hours', str(args.hours)], cwd=ROOT,
+        process = subprocess.Popen([sys.executable, str(Path(__file__).resolve()), '_run', '--hours', str(args.hours)] + (['--until', args.until] if args.until else []), cwd=ROOT,
                                    stdin=subprocess.DEVNULL, stdout=log, stderr=log, start_new_session=True)
     for _ in range(180):
         value = read_state()

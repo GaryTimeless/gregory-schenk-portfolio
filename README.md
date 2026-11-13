@@ -33,7 +33,7 @@ Prüfungen: `node --test expertsearch-service/worker.test.mjs scripts/expertsear
 Für lokale UI- und Live-QA: erst Pages-Build ausführen, dann
 `node scripts/preview_expertsearch.mjs` (nur Loopback, maximal 20 Expert-Aufrufe).
 Mit `--fixtures` stattdessen synthetische Testantworten verwenden. Der Dienst-Code
-wird nicht mit der Pages-Ausgabe ausgeliefert. Auf Gregs Auftrag ist für den einmaligen Einsatz zusätzlich eine vierstündige
+wird nicht mit der Pages-Ausgabe ausgeliefert. Auf Gregs Auftrag ist für den einmaligen Einsatz zusätzlich eine befristete
 MacBook-Sitzung über Cloudflare Quick Tunnel möglich. Status und Stopp:
 `python3 scripts/expertsearch_session.py status` bzw. `stop`. Die aktuelle
 config.json kennzeichnet ihre Laufzeit. Das MacBook muss dafür online bleiben. [Projektstand und Gestaltung](docs/expertsearch.md).

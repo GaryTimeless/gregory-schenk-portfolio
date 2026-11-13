@@ -55,3 +55,5 @@ stored in memory. Client batches are also sequential with a 2.2s pause. CORS is
 not private access control; the API remains a public, rate-limited read-only
 endpoint for the session. All 361 markets are an optional explicit user action;
 no mass scan is started by deployment.
+
+Extension requested by Greg: until Saturday 14 November 2026, 22:00 Europe/Berlin. Use `python3 scripts/expertsearch_session.py start --until 2026-11-14T22:00:00+01:00` after stopping the previous session. Absolute deadlines are limited to 48 hours ahead; a new Quick Tunnel URL must be published in config.json.

@@ -126,7 +126,7 @@ async function init() {
     const url=URL.createObjectURL(blob);const link=node('a');link.href=url;link.download=`expertsearch-${state.product.webcode}.csv`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   });
   try {
-    const load=async file=>{const response=await fetch(file);if(!response.ok)throw new Error();return response.json();};
+    const load=async file=>{const response=await fetch(file,{cache:'no-store'});if(!response.ok)throw new Error();return response.json();};
     const [config,list]=await Promise.all([load('./config.json'),load('./markets.json')]);
     state.config=config;
     state.markets=list.markets.filter(m=>/^\d+$/.test(m.id)&&typeof m.name==='string'&&typeof m.city==='string');
