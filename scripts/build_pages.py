@@ -30,6 +30,7 @@ def build(output, now=None):
     stage.mkdir(parents=True)
     for name in STATIC: shutil.copy2(ROOT/name, stage/name)
     shutil.copytree(ROOT/'assets', stage/'assets')
+    shutil.copytree(ROOT/'expertsearch', stage/'expertsearch')
     customer = stage/'kundenprojekt'
     customer.mkdir()
     active = starts <= now < expires

@@ -1,0 +1,10 @@
+{
+  "apiBase": "https://trip-structural-enter-stations.trycloudflare.com",
+  "batchSize": 5,
+  "defaultMarkets": [
+    "1907031",
+    "1906830",
+    "1906832"
+  ],
+  "expiresAt": "2026-11-13T13:35:39.159307+00:00"
+}
