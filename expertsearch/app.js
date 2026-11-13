@@ -15,6 +15,7 @@ export function total(offer) {
   return shipping ? offer.gross_price + shipping.gross : null;
 }
 export function csvCell(value) {const text = String(value ?? ''); return '"' + (/^[=+\-@\t\r]/.test(text) ? "'" + text : text).replaceAll('"','""') + '"';}
+export function liveAvailable(config, now=Date.now()) {return typeof config?.apiBase === 'string' && !!config.apiBase && (!config.expiresAt || (Number.isFinite(Date.parse(config.expiresAt)) && Date.parse(config.expiresAt)>now));}
 export function isConfirmed(offer) {return offer.status === 'ok' && offer.identity_confirmed === true && Number.isFinite(offer.gross_price) && offer.gross_price > 0;}
 const dateText = value => {const date=new Date(value); return Number.isNaN(date.getTime()) ? 'Abrufzeit unbekannt' : date.toLocaleString('de-DE', {dateStyle:'medium', timeStyle:'short'});};
 
@@ -74,7 +75,7 @@ async function init() {
     $('other-offers').replaceChildren(...other.map(m=>offerNode(m,false)));
     $('export').disabled=!state.offers.length;
   }
-  function stop() {state.controller?.abort(); state.controller=null; state.run++; $('cancel').disabled=true; $('submit').disabled=!state.config?.apiBase;}
+  function stop() {state.controller?.abort(); state.controller=null; state.run++; $('cancel').disabled=true; $('submit').disabled=!liveAvailable(state.config);}
   function clearForInput() {stop(); state.product=null; state.offers=[]; $('results-section').hidden=true; $('progress-section').hidden=true; error('');}
   $('product-url').addEventListener('input',clearForInput);
   $('example').addEventListener('click',()=>{$('product-url').value=EXAMPLE; clearForInput(); $('product-url').focus();});
@@ -85,7 +86,7 @@ async function init() {
   $('cancel').addEventListener('click',()=>{stop(); $('progress-label').textContent=`Abgebrochen. ${state.offers.length} Marktantworten bleiben sichtbar.`;});
   $('search-form').addEventListener('submit',async event=>{
     event.preventDefault(); error('');
-    if(!state.config?.apiBase){error('Die Live-Suche wird noch eingerichtet.');return;}
+    if(!liveAvailable(state.config)){error(state.config?.expiresAt?'Die vorübergehende Live-Suche ist beendet.':'Die Live-Suche wird noch eingerichtet.');return;}
     let sought; try{sought=product($('product-url').value);}catch(e){error(e.message);return;}
     const markets=selectedScope()==='all'?state.markets:state.markets.filter(m=>state.selected.has(m.id));
     if(!markets.length){error('Bitte wähle mindestens einen Markt aus.');return;}
@@ -130,10 +131,11 @@ async function init() {
     state.config=config;
     state.markets=list.markets.filter(m=>/^\d+$/.test(m.id)&&typeof m.name==='string'&&typeof m.city==='string');
     state.selected=new Set(config.defaultMarkets.filter(id=>state.markets.some(m=>m.id===id))); count();picker();
-    $('submit').disabled=!config.apiBase;
-    $('live-note').textContent=config.apiBase?'Die Suche fragt die ausgewählten Märkte nacheinander ab. Ein Vergleich über die ganze Liste kann einige Minuten dauern.':'Die Live-Suche wird noch eingerichtet. Du kannst unten einen gespeicherten Vergleich ansehen.';
+    $('submit').disabled=!liveAvailable(config);
+    $('live-note').textContent=liveAvailable(config)?(config.expiresAt?`Vorübergehend verfügbar bis ${dateText(config.expiresAt)}. Ein Vergleich über die ganze Marktliste kann einige Minuten dauern.`:'Die Suche fragt die ausgewählten Märkte nacheinander ab. Ein Vergleich über die ganze Liste kann einige Minuten dauern.'):(config.expiresAt?'Die vorübergehende Live-Suche ist beendet. Unten findest du einen gespeicherten Vergleich.':'Die Live-Suche wird noch eingerichtet. Du kannst unten einen gespeicherten Vergleich ansehen.');
+    if(config.expiresAt && liveAvailable(config))setTimeout(()=>{stop();$('submit').disabled=true;$('live-note').textContent='Die vorübergehende Live-Suche ist beendet. Bereits abgerufene Ergebnisse bleiben sichtbar.';},Math.max(1,Date.parse(config.expiresAt)-Date.now()));
     $('product-url').value=EXAMPLE;
-    if(!config.apiBase){try {const saved=await load('./snapshot.json');state.product=product(saved.product_url);state.offers=saved.markets;state.time=saved.retrieved_at;state.saved=true;render();}catch{$('live-note').textContent='Die Live-Suche wird noch eingerichtet.';}}
+    if(!liveAvailable(config)){try {const saved=await load('./snapshot.json');state.product=product(saved.product_url);state.offers=saved.markets;state.time=saved.retrieved_at;state.saved=true;render();}catch{$('live-note').textContent='Die Live-Suche wird noch eingerichtet.';}}
   }catch {error('Die Marktliste konnte nicht geladen werden. Bitte lade die Seite erneut.');$('live-note').hidden=true;}
 }
 if(typeof document!=='undefined')init();

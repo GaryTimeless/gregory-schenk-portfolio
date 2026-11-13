@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 const source = await readFile(new URL('../expertsearch/app.js', import.meta.url), 'utf8');
-const {product, total, csvCell, isConfirmed} = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+const {product, total, csvCell, isConfirmed, liveAvailable} = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
 const offer = {status:'ok',identity_confirmed:true,gross_price:354.9,currency:'EUR',shipping:[{type:'PKG',gross:0,currency:'EUR'}]};
 test('accepts only actual Expert HTTPS product URLs and removes old market selection', () => {
   const parsed = product('https://www.expert.de/shop/36411100248-machine.html?branch_id=123#info');
@@ -24,4 +24,11 @@ test('CSV escapes quotes and spreadsheet formulas from market labels',()=>{
   assert.equal(csvCell('a"b'),'"a""b"');
   assert.equal(csvCell('=HYPERLINK(1)'), '"\'=HYPERLINK(1)"');
   assert.equal(csvCell(null),'""');
+});
+
+test('temporary search expires without enabling stale backend URLs',()=>{
+  assert.equal(liveAvailable({apiBase:'https://service.example',expiresAt:'2026-11-13T14:00:00Z'},Date.parse('2026-11-13T13:59:00Z')),true);
+  assert.equal(liveAvailable({apiBase:'https://service.example',expiresAt:'2026-11-13T14:00:00Z'},Date.parse('2026-11-13T14:00:00Z')),false);
+  assert.equal(liveAvailable({apiBase:''}),false);
+  assert.equal(liveAvailable({apiBase:'https://service.example',expiresAt:'bad-date'}),false);
 });

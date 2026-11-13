@@ -1,12 +1,12 @@
 # ExpertSearch price adapter
 
-Prepared on 13 November 2026. **Not deployed.** The visible app remains a static subpage at `https://g-schenk.de/expertsearch/` in this repository. This optional service supplies its live prices; it does not replace or migrate the portfolio.
+Updated on 13 November 2026. The current temporary session uses Greg’s MacBook through an account-free Cloudflare Quick Tunnel. The visible app remains a static subpage at `https://g-schenk.de/expertsearch/` in this repository. This optional service supplies its live prices; it does not replace or migrate the portfolio.
 
 ## Why a separate service
 
 The Expert `pricepds` endpoint responded to a request with `Origin: https://g-schenk.de` with `Access-Control-Allow-Origin: https://www.expert.de`. A browser on g-schenk.de therefore cannot read that response. GitHub Pages executes no Python/Node server code. A separate read-only adapter is needed for live queries.
 
-## Prepared deployment option
+## Optional permanent deployment (not used)
 
 `worker.mjs` is an un-deployed Cloudflare Worker. No account was created, no subscription changed, no hosting provisioned and no runtime credentials saved. A deployment target/account is still to be chosen by Greg. Cloudflare's documented Free plan includes 100,000 requests/day with 10ms CPU per invocation (checked 2026-11-13); this is an option, not proof that a particular account or deployment will stay free. Keep the Free plan and its existing limits; no automatic paid-plan upgrade.
 
@@ -30,3 +30,28 @@ References:
 - https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
 - https://developers.cloudflare.com/workers/platform/pricing/
 - https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/
+
+## Temporary Mac session (current choice)
+
+Greg explicitly authorized using his MacBook for this one-off use. `mac-server.mjs`
+serves only the read-only API on loopback port 8776. It exposes no local files.
+`python3 scripts/expertsearch_session.py start --hours 4` starts the API, a Quick
+Tunnel and an idle-sleep inhibitor. It returns the temporary HTTPS API URL and
+expiry. State/logs are in ignored `.local/expertsearch-session/` (no account keys).
+No login service, router port forwarding, login item, paid plan or DNS change.
+
+The supervisor stops the API, tunnel and sleep inhibitor automatically at expiry.
+`python3 scripts/expertsearch_session.py status` shows the state.
+`python3 scripts/expertsearch_session.py stop` stops this owned session early.
+Closing the lid, sleep, losing the network or rebooting may end availability
+before expiry. A restarted Quick Tunnel has a new URL: update config.json and
+republish before sharing it again. There is no automatic restart or public relay
+after this session.
+
+The Mac adapter serializes upstream requests at least 250ms apart, caps incoming
+API requests at 60/minute and two simultaneous batches, and caps a session at
+3,000 upstream calls. Cache lasts ten minutes; only product/market answers are
+stored in memory. Client batches are also sequential with a 2.2s pause. CORS is
+not private access control; the API remains a public, rate-limited read-only
+endpoint for the session. All 361 markets are an optional explicit user action;
+no mass scan is started by deployment.

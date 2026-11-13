@@ -6,7 +6,7 @@
 
 ## Stand
 
-Frontend, Pages-Build und optionaler Worker-Adapter sind vorbereitet. Noch kein Produktionsbackend ausgewählt/gestartet. `expertsearch/config.json` enthält absichtlich eine leere apiBase. Die Seite zeigt in diesem Zustand ausdrücklich einen gespeicherten Vergleich mit dessen Abrufdatum und deaktiviert Liveabfragen. Sie ist damit noch kein fertig freigegebener Live-Preisvergleich.
+Greg hat die vorübergehende Nutzung seines MacBooks ausdrücklich beauftragt. Der API-Dienst läuft für vier Stunden ausschließlich auf Loopback, erreichbar über Cloudflare Quick Tunnel ohne Konto. `expertsearch/config.json` enthält dessen temporäre HTTPS-Adresse und expiresAt. Nach Ablauf deaktiviert die Oberfläche Liveabfragen und kennzeichnet den gespeicherten Vergleich. Der Supervisor beendet API, Tunnel und Schlafverhinderung automatisch. Kein Dauerbetrieb oder automatischer Neustart.
 
 DeepCode-Run `20261113T090042Z-ca678f18` (deepseek-v4-pro, Thinking low) erreichte nach 420 Sekunden den Timeout ohne gelieferte Frontenddateien; Codex hat die Oberfläche übernommen. Keine zweite kostenpflichtige Worker-Runde gestartet. Der ursprüngliche Prototyp und die Marktlistenanalyse bleiben als Vorarbeit erhalten.
 
@@ -14,6 +14,6 @@ DeepCode-Run `20261113T090042Z-ca678f18` (deepseek-v4-pro, Thinking low) erreich
 
 `expertsearch/` wird vom bestehenden `scripts/build_pages.py` nach `_site/expertsearch/` kopiert. Die bisherige Portfolio-Startseite, CNAME und Vorschauablaufsteuerung bleiben erhalten. Backend-Code unter `expertsearch-service/` wird nicht nach `_site` kopiert.
 
-Der optionale Live-Dienst wird in expertsearch-service/README.md beschrieben. Für volle Nutzung benötigt er ein ausgewähltes Hostingkonto und seine HTTPS-URL in config.json. Geplanter Nutzerlink bleibt https://g-schenk.de/expertsearch/. Datenschutzangaben vor Aktivierung an den tatsächlichen Backendanbieter anpassen.
+Der temporäre Mac-Dienst wird in expertsearch-service/README.md beschrieben. Nutzerlink: https://g-schenk.de/expertsearch/. Datenschutzangaben wurden um den tatsächlich verwendeten Quick Tunnel und den lokalen Abfrageablauf ergänzt. Ein Cloudflare Worker bleibt nur eine vorbereitete Alternative und wurde nicht bereitgestellt.
 
 Die 361er-Marktliste stammt aus DJGorex/expert-checker und ist eine datierte Ausgangsliste, keine aktuelle Vollständigkeitsgarantie. Gespeicherte Preise sind keine Livepreise. Ein unbestätigter Marktpreis wird nie als günstigstes bestätigtes Angebot angezeigt.

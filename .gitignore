@@ -2,3 +2,5 @@
 _site/
 _site.building/
 __pycache__/
+
+.local/

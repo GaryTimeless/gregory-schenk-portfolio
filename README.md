@@ -19,7 +19,7 @@ Lokal mit `python3 -m http.server 8768 --bind 127.0.0.1` öffnen.
 Die lokal eingebundene Schrift Syne steht unter der SIL Open Font License; siehe `assets/Syne-OFL.txt`.
 
 
-## ExpertSearch-Unterseite (vorbereitet)
+## ExpertSearch-Unterseite
 
 `expertsearch/` ergänzt die statische Ausgabe um `/expertsearch/`: Produktadresse,
 Marktauswahl aus 361 hinterlegten Filialen, sortierte Ergebnisse und CSV-Export.
@@ -33,5 +33,7 @@ Prüfungen: `node --test expertsearch-service/worker.test.mjs scripts/expertsear
 Für lokale UI- und Live-QA: erst Pages-Build ausführen, dann
 `node scripts/preview_expertsearch.mjs` (nur Loopback, maximal 20 Expert-Aufrufe).
 Mit `--fixtures` stattdessen synthetische Testantworten verwenden. Der Dienst-Code
-wird nicht mit der Pages-Ausgabe ausgeliefert. Kein neuer Produktionsdienst ist
-hierdurch gestartet. [Projektstand und Gestaltung](docs/expertsearch.md).
+wird nicht mit der Pages-Ausgabe ausgeliefert. Auf Gregs Auftrag ist für den einmaligen Einsatz zusätzlich eine vierstündige
+MacBook-Sitzung über Cloudflare Quick Tunnel möglich. Status und Stopp:
+`python3 scripts/expertsearch_session.py status` bzw. `stop`. Die aktuelle
+config.json kennzeichnet ihre Laufzeit. Das MacBook muss dafür online bleiben. [Projektstand und Gestaltung](docs/expertsearch.md).
